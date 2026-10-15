@@ -1,0 +1,197 @@
+{
+  "method": "Python statistics/NormalDist/math; independent of src/lib/math.ts",
+  "originalC": {
+    "original-1-C1-a": {
+      "mean": 19,
+      "median": 17.0
+    },
+    "original-1-C1-b": {
+      "Q1": 12.5,
+      "Q3": 21.5,
+      "IQR": 9.0,
+      "lower": -1.0,
+      "upper": 35.0
+    },
+    "original-1-C1-c": {
+      "variance": 88,
+      "sd": 9.38083151964686,
+      "CV": 49.37279747182558
+    },
+    "original-2-C1-a": {
+      "mean": 25,
+      "median": 23.5
+    },
+    "original-2-C1-b": {
+      "Q1": 18.5,
+      "Q3": 29.25,
+      "IQR": 10.75,
+      "lower": 2.375,
+      "upper": 45.375
+    },
+    "original-2-C1-c": {
+      "variance": 76.57142857142857,
+      "sd": 8.750510189207745,
+      "CV": 35.00204075683098
+    },
+    "original-3-C1-a": {
+      "mean": 18.6,
+      "median": 15.5
+    },
+    "original-3-C1-b": {
+      "Q1": 12.75,
+      "Q3": 19.5,
+      "IQR": 6.75,
+      "lower": 2.625,
+      "upper": 29.625
+    },
+    "original-3-C1-c": {
+      "variance": 117.15555555555555,
+      "sd": 10.823841996054615,
+      "CV": 58.19269890351943
+    },
+    "original-1-C2-a": {
+      "probability": 0.24000000000000005
+    },
+    "original-1-C2-b": {
+      "probability": 0.6666666666666666
+    },
+    "original-1-C2-c": {
+      "probability": 0.052631578947368404
+    },
+    "original-2-C2-a": {
+      "probability": 0.19
+    },
+    "original-2-C2-b": {
+      "probability": 0.5368421052631579
+    },
+    "original-2-C2-c": {
+      "probability": 0.9078534031413612
+    },
+    "original-3-C2-a": {
+      "probability": 0.1235
+    },
+    "original-3-C2-b": {
+      "probability": 0.38461538461538464
+    },
+    "original-3-C2-c": {
+      "probability": 0.032851511169513826
+    },
+    "original-1-C3-a": {
+      "mean": 1.5,
+      "secondMoment": 2.9000000000000004,
+      "variance": 0.6500000000000004,
+      "sd": 0.8062257748298551
+    },
+    "original-1-C3-b": {
+      "mean": 25.0,
+      "sd": 16.124515496597102
+    },
+    "original-1-C3-c": {
+      "probability": 0.24300000000000005
+    },
+    "original-1-C3-d": {
+      "probability": 0.25,
+      "quantile": 40
+    },
+    "original-2-C3-a": {
+      "mean": 1.5,
+      "secondMoment": 3.0999999999999996,
+      "variance": 0.8499999999999996,
+      "sd": 0.9219544457292885
+    },
+    "original-2-C3-b": {
+      "mean": 33.0,
+      "sd": 27.658633371878658
+    },
+    "original-2-C3-c": {
+      "probability": 0.15360000000000007
+    },
+    "original-2-C3-d": {
+      "probability": 0.06680720126885809,
+      "quantile": 60.25241252435681,
+      "pdfTableProbability": 0.0668,
+      "pdfTableQuantile": 60.2528
+    },
+    "original-3-C3-a": {
+      "mean": 22.0,
+      "secondMoment": 1720.0,
+      "variance": 1236.0,
+      "sd": 35.156791662493895
+    },
+    "original-3-C3-b": {
+      "mean": 29.0,
+      "sd": 70.31358332498779
+    },
+    "original-3-C3-c": {
+      "mean": 19.0,
+      "variance": 5088.0,
+      "sd": 71.33021800050803
+    },
+    "original-3-C3-d": {
+      "probability": 0.06680720126885809,
+      "quantile": 49.869121761708826,
+      "pdfTableProbability": 0.0668,
+      "pdfTableQuantile": 49.87
+    }
+  },
+  "PS1": {
+    "C1": {
+      "mean": 42.5,
+      "median": 39.0,
+      "Q1": 32.75,
+      "Q3": 44.25,
+      "IQR": 11.5,
+      "lower": 15.5,
+      "upper": 61.5,
+      "variance": 230.85714285714286,
+      "sd": 15.19398377178095,
+      "CV": 35.75055005124929
+    },
+    "C2": {
+      "positive": 0.21500000000000002,
+      "posteriorOne": 0.372093023255814,
+      "posteriorTwoConditionalIndependence": 0.7596439169139466
+    },
+    "C3": {
+      "mean": 1.3,
+      "secondMoment": 2.5,
+      "variance": 0.8099999999999998,
+      "sd": 0.8999999999999999,
+      "profitMean": 42,
+      "profitSD": 36,
+      "oneLate": 0.3840000000000001,
+      "normalTail": 0.02275013194817921,
+      "normalQ90": 52.68930939326761,
+      "pdfTableTail": 0.0228,
+      "pdfTableQ90": 52.6896
+    }
+  },
+  "lecture": {
+    "correlation": {
+      "crossDeviationSum": -63,
+      "covariance": -15.75,
+      "sdY": 9.974968671630002,
+      "correlation": -0.9986171342934801
+    },
+    "returningPlanes": {
+      "givenJoint": 0.08000000000000002,
+      "minimumJoint": 0.3999999999999999,
+      "consistent": false
+    },
+    "bayesianRice": {
+      "frequentistOneSidedP": 0.171875,
+      "posteriorBetterUniformPrior": 0.88671875
+    },
+    "handwritten242": {
+      "mean": 160,
+      "conditionalGood": 175,
+      "conditionalBad": 150
+    },
+    "handwritten247": {
+      "mean": 150.0,
+      "secondMoment": 32500.0,
+      "variance": 10000.0,
+      "sd": 100.0
+    }
+  }
+}

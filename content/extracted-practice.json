@@ -1,0 +1,860 @@
+[
+  {
+    "number": 1,
+    "filename": "LESE152_Practice_Set_1.pdf",
+    "objective": [
+      {
+        "id": "MC1",
+        "question": "Which variable is ordinal?",
+        "options": [
+          "Zip code",
+          "Satisfaction: poor / fair / good",
+          "Province name",
+          "Rice price"
+        ],
+        "answer": 1,
+        "explanation": "만족도는 순서가 있지만 인접 범주 사이 간격이 일정하다고 가정하기 어렵다. 우편번호·지역명은 명목형, 가격은 수치형이다.",
+        "page": 1
+      },
+      {
+        "id": "MC2",
+        "question": "What is the sample mean of 4, 6, 8, and 10?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "answer": 1,
+        "explanation": "(4+6+8+10)/4 = 28/4 = 7.",
+        "page": 1
+      },
+      {
+        "id": "MC3",
+        "question": "A sample has Q1 = 10 and Q3 = 18. What is the upper 1.5 × IQR fence?",
+        "options": [
+          "24",
+          "26",
+          "30",
+          "32"
+        ],
+        "answer": 2,
+        "explanation": "IQR=18-10=8; 상한선은 18+1.5×8=30이다. 30을 초과한 값이 잠재적 이상치다.",
+        "page": 1
+      },
+      {
+        "id": "MC4",
+        "question": "If P(A) = 0.35, what is P(A^c)?",
+        "options": [
+          "0.35",
+          "0.65",
+          "0.70",
+          "1.35"
+        ],
+        "answer": 1,
+        "explanation": "여사건 법칙: P(A^c)=1-P(A)=0.65.",
+        "page": 1
+      },
+      {
+        "id": "MC5",
+        "question": "Delivery time T is Uniform(20, 50) minutes. Find P(T > 35).",
+        "options": [
+          "1/4",
+          "1/3",
+          "1/2",
+          "3/4"
+        ],
+        "answer": 2,
+        "explanation": "연속균등분포에서는 길이의 비율: (50-35)/(50-20)=15/30=0.5.",
+        "page": 1
+      },
+      {
+        "id": "MC6",
+        "question": "Among 60 organic farms, 24 receive a subsidy. Find P(subsidy | organic).",
+        "options": [
+          "0.24",
+          "0.40",
+          "0.60",
+          "0.75"
+        ],
+        "answer": 1,
+        "explanation": "조건이 organic이므로 분모는 전체 농가가 아니라 유기농 농가 60개: 24/60=0.40.",
+        "page": 1
+      },
+      {
+        "id": "MC7",
+        "question": "X has values 0, 1, 2 with probabilities 0.2, 0.5, 0.3. Find E(X).",
+        "options": [
+          "0.8",
+          "1.1",
+          "1.3",
+          "1.5"
+        ],
+        "answer": 1,
+        "explanation": "E(X)=0×0.2+1×0.5+2×0.3=1.1.",
+        "page": 2
+      },
+      {
+        "id": "MC8",
+        "question": "X ~ Binomial(4, 0.25). What is Var(X)?",
+        "options": [
+          "0.25",
+          "0.50",
+          "0.75",
+          "1.00"
+        ],
+        "answer": 2,
+        "explanation": "이항분포의 분산은 np(1-p)=4×0.25×0.75=0.75.",
+        "page": 2
+      },
+      {
+        "id": "MC9",
+        "question": "X ~ Poisson(1). Approximately what is P(X = 0)?",
+        "options": [
+          "0.1353",
+          "0.3679",
+          "0.5000",
+          "0.6321"
+        ],
+        "answer": 1,
+        "explanation": "포아송 PMF: P(X=0)=e^(-1)×1^0/0!=e^(-1)≈0.3679.",
+        "page": 2
+      },
+      {
+        "id": "MC10",
+        "question": "T ~ Normal(100, 10²). Find P(T > 110).",
+        "options": [
+          "0.1587",
+          "0.3085",
+          "0.5000",
+          "0.8413"
+        ],
+        "answer": 0,
+        "explanation": "Z=(110-100)/10=1. P(Z>1)=1-Φ(1)=1-0.8413=0.1587.",
+        "page": 2
+      },
+      {
+        "id": "TF1",
+        "question": "Postal codes are quantitative measurements, so their mean is meaningful.",
+        "answer": false,
+        "explanation": "숫자로 기록했어도 지역을 구별하는 식별자이므로 명목형이다. 평균 우편번호에는 경제적 의미가 없다.",
+        "page": 2
+      },
+      {
+        "id": "TF2",
+        "question": "The sample median is usually more resistant to extreme observations than the sample mean.",
+        "answer": true,
+        "explanation": "중앙값은 정렬된 데이터의 가운데 위치에 기반하므로 극단값 변화에 비교적 둔감하다.",
+        "page": 2
+      },
+      {
+        "id": "TF3",
+        "question": "The usual unbiased sample variance divides the sum of squared deviations by n.",
+        "answer": false,
+        "explanation": "불편 표본분산은 n-1로 나눈다. 표본평균을 계산하면서 자유도 하나가 사용된다.",
+        "page": 2
+      },
+      {
+        "id": "TF4",
+        "question": "If P(A ∩ B) = P(A)P(B), events A and B are independent.",
+        "answer": true,
+        "explanation": "독립사건의 곱셈법칙이며 독립성의 판정 조건이다.",
+        "page": 2
+      },
+      {
+        "id": "TF5",
+        "question": "Two mutually exclusive events with positive probabilities are also independent.",
+        "answer": false,
+        "explanation": "상호배반이면 P(A∩B)=0이지만 양의 확률을 가진 독립사건이면 P(A∩B)=P(A)P(B)>0이어야 한다.",
+        "page": 2
+      },
+      {
+        "id": "TF6",
+        "question": "The probabilities in a valid discrete PMF sum to one.",
+        "answer": true,
+        "explanation": "전체 가능한 결과의 확률을 합하면 반드시 1이다.",
+        "page": 2
+      },
+      {
+        "id": "TF7",
+        "question": "For any random variable X, E(2X + 5) = 2E(X) + 5.",
+        "answer": true,
+        "explanation": "기댓값의 선형성은 별도의 독립성 가정이 필요하지 않다.",
+        "page": 2
+      },
+      {
+        "id": "TF8",
+        "question": "Adding 10 to X changes its variance.",
+        "answer": false,
+        "explanation": "Var(X+10)=Var(X); 상수는 위치만 이동시키고 퍼짐을 변화시키지 않는다.",
+        "page": 3
+      },
+      {
+        "id": "TF9",
+        "question": "For a continuous distribution, the density f(x) can never be greater than one.",
+        "answer": false,
+        "explanation": "확률은 구간에 대한 밀도함수의 적분이다. 밀도 자체는 1을 넘을 수 있다.",
+        "page": 3
+      },
+      {
+        "id": "TF10",
+        "question": "An exponential waiting time is memoryless: time already waited does not change the probability of waiting an additional fixed interval.",
+        "answer": true,
+        "explanation": "P(T>s+t | T>s)=P(T>t). 이는 지수분포의 무기억성이다.",
+        "page": 3
+      }
+    ],
+    "written": [
+      {
+        "id": "C1",
+        "question": "Farmers’ market visitors The number of visitors over 8 days is: 10, 12, 14, 16, 18, 20, 22, 40.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Calculate the mean and median. What do they suggest about skewness?",
+            "answer": "합계=152, n=8이므로 평균=152/8=19. 중앙값=(16+18)/2=17. 평균이 중앙값보다 크며 40이라는 큰 값이 있으므로 우측 치우침을 예상한다."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Find Q1 and Q3 using Lp = (p/100)(n+1) and interpolation. Use 1.5 × IQR to check for outliers.",
+            "answer": "L25=0.25×9=2.25 → Q1=12+0.25(14-12)=12.5. L75=0.75×9=6.75 → Q3=20+0.75(22-20)=21.5. IQR=9. 하한=12.5-13.5=-1, 상한=21.5+13.5=35. 40>35이므로 이상치 후보이다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Calculate the sample standard deviation and coefficient of variation (in %).",
+            "answer": "평균 19를 이용한 제곱편차의 합은 81+49+25+9+1+1+9+441=616. 표본분산 s²=616/(8-1)=88, s=√88≈9.381. CV=(9.381/19)×100≈49.37%."
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "question": "Pest warning test 20% of fields are infested (D). A sensor signals (+) with probability 0.80 for an infested field, and with probability 0.10 for a clean field.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Find P(+).",
+            "answer": "전확률법칙: P(+)=0.20×0.80+0.80×0.10=0.16+0.08=0.24."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Find P(D | +).",
+            "answer": "베이즈 정리: P(D|+)=0.20×0.80/0.24=0.16/0.24=2/3≈0.6667."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Find P(D | no signal).",
+            "answer": "P(-|D)=0.20, P(-|D^c)=0.90. P(D|-)=(0.20×0.20)/(0.20×0.20+0.80×0.90)=0.04/0.76≈0.0526."
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "question": "Catering orders and waiting time The daily order count X has PMF: x = 0, 1, 2, 3 with probabilities 0.1, 0.4, 0.4, 0.1.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Compute E(X), Var(X), and sd(X).",
+            "answer": "E(X)=0×.1+1×.4+2×.4+3×.1=1.5. E(X²)=0+.4+4×.4+9×.1=2.9. Var(X)=2.9-1.5²=0.65, sd(X)=√0.65≈0.8062."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Daily profit is Y = 20X - 5 (thousand won). Find E(Y) and sd(Y).",
+            "answer": "E(Y)=20E(X)-5=20×1.5-5=25(천 원). sd(Y)=|20|sd(X)≈20×0.8062=16.12(천 원)."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Three customers pay independently; each is late with probability 0.10. Find P(exactly one late payment).",
+            "answer": "K~Binomial(3,0.1). P(K=1)=C(3,1)×0.1×0.9²=3×0.1×0.81=0.243."
+          },
+          {
+            "id": "d",
+            "points": 5,
+            "question": "Preparation time T ~ Uniform(10, 50) minutes. Find P(T > 40) and the 75th percentile of T.",
+            "answer": "P(T>40)=(50-40)/(50-10)=10/40=0.25. 75백분위수=10+0.75(50-10)=40분."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "filename": "LESE152_Practice_Set_2.pdf",
+    "objective": [
+      {
+        "id": "MC1",
+        "question": "Annual output of 100 farms tracked over five years forms which data structure?",
+        "options": [
+          "Cross-section",
+          "Time series",
+          "Panel",
+          "Census"
+        ],
+        "answer": 2,
+        "explanation": "여러 농가라는 횡단면 단위와 여러 연도라는 시간축이 동시에 있으므로 패널자료다.",
+        "page": 1
+      },
+      {
+        "id": "MC2",
+        "question": "Chebyshev’s inequality guarantees at least what fraction within 2 standard deviations?",
+        "options": [
+          "50%",
+          "68%",
+          "75%",
+          "95%"
+        ],
+        "answer": 2,
+        "explanation": "1-1/k²에서 k=2이면 1-1/4=0.75. 이는 정규분포 여부와 무관하다.",
+        "page": 1
+      },
+      {
+        "id": "MC3",
+        "question": "A and B are independent, P(A)=0.5 and P(B)=0.4. Find P(A ∪ B).",
+        "options": [
+          "0.20",
+          "0.50",
+          "0.70",
+          "0.90"
+        ],
+        "answer": 2,
+        "explanation": "P(A∩B)=0.5×0.4=0.2, 따라서 P(A∪B)=0.5+0.4-0.2=0.7.",
+        "page": 1
+      },
+      {
+        "id": "MC4",
+        "question": "A depot receives Poisson(3) trucks per hour. Find P(exactly one truck).",
+        "options": [
+          "0.0498",
+          "0.1494",
+          "0.2240",
+          "0.9502"
+        ],
+        "answer": 1,
+        "explanation": "P(X=1)=e^(-3)×3¹/1!≈3×0.0498=0.1494.",
+        "page": 1
+      },
+      {
+        "id": "MC5",
+        "question": "T ~ Uniform(12, 36) minutes. Find P(T < 20).",
+        "options": [
+          "1/4",
+          "1/3",
+          "1/2",
+          "2/3"
+        ],
+        "answer": 1,
+        "explanation": "(20-12)/(36-12)=8/24=1/3.",
+        "page": 1
+      },
+      {
+        "id": "MC6",
+        "question": "For sorted data 10,20,30,40,50,60,70, what is the 75th percentile using Lp=(p/100)(n+1)?",
+        "options": [
+          "50",
+          "55",
+          "60",
+          "65"
+        ],
+        "answer": 2,
+        "explanation": "n=7이므로 L75=0.75×8=6. 여섯 번째 관측값은 60.",
+        "page": 1
+      },
+      {
+        "id": "MC7",
+        "question": "X ~ Binomial(10, 0.2). What is E(X)?",
+        "options": [
+          "0.2",
+          "1",
+          "2",
+          "8"
+        ],
+        "answer": 2,
+        "explanation": "이항분포 기댓값 E(X)=np=10×0.2=2.",
+        "page": 2
+      },
+      {
+        "id": "MC8",
+        "question": "A sample correlation of -0.9 indicates:",
+        "options": [
+          "Strong negative linear association",
+          "Strong positive linear association",
+          "Causality from X to Y",
+          "Independence"
+        ],
+        "answer": 0,
+        "explanation": "-0.9는 강한 음의 선형관계를 의미한다. 인과관계나 독립성을 직접 결론 낼 수 없다.",
+        "page": 2
+      },
+      {
+        "id": "MC9",
+        "question": "T ~ Normal(80, 5²). Find P(T > 90).",
+        "options": [
+          "0.0228",
+          "0.1587",
+          "0.5000",
+          "0.9772"
+        ],
+        "answer": 0,
+        "explanation": "Z=(90-80)/5=2, 따라서 P(Z>2)=1-Φ(2)=0.0228.",
+        "page": 2
+      },
+      {
+        "id": "MC10",
+        "question": "Revenue R and cost C are independent with sd(R)=3 and sd(C)=4. Find sd(R-C).",
+        "options": [
+          "1",
+          "5",
+          "7",
+          "25"
+        ],
+        "answer": 1,
+        "explanation": "독립일 때 Var(R-C)=3²+4²=25. 표준편차는 √25=5이다. 분산과 표준편차를 혼동하지 않는다.",
+        "page": 2
+      },
+      {
+        "id": "TF1",
+        "question": "Under random sampling with finite mean, the sample mean is an unbiased estimator of the population mean.",
+        "answer": true,
+        "explanation": "적절한 무작위 표본추출에서 E(x-bar)=μ이다. 다만 특정 한 표본의 평균이 반드시 μ와 같다는 뜻은 아니다.",
+        "page": 2
+      },
+      {
+        "id": "TF2",
+        "question": "If two events are mutually exclusive and both have positive probabilities, they must be independent.",
+        "answer": false,
+        "explanation": "양의 확률인 상호배반사건의 교집합은 0이므로 독립사건 곱셈식과 충돌한다.",
+        "page": 2
+      },
+      {
+        "id": "TF3",
+        "question": "P(A | B) is always the same as P(B | A) whenever both are defined.",
+        "answer": false,
+        "explanation": "조건부확률에서 분모가 각각 P(B), P(A)로 달라 일반적으로 값도 다르다.",
+        "page": 2
+      },
+      {
+        "id": "TF4",
+        "question": "If E(X) = 4 and E(X²) = 21, then Var(X) = 5.",
+        "answer": true,
+        "explanation": "Var(X)=E(X²)-[E(X)]²=21-16=5.",
+        "page": 2
+      },
+      {
+        "id": "TF5",
+        "question": "Adding the same positive constant to every observation leaves the coefficient of variation unchanged.",
+        "answer": false,
+        "explanation": "표준편차는 변하지 않지만 평균이 커지므로 CV=s/x-bar는 보통 감소한다.",
+        "page": 2
+      },
+      {
+        "id": "TF6",
+        "question": "If X and Y are independent, E(XY) = E(X)E(Y).",
+        "answer": true,
+        "explanation": "독립성이 있으면 곱의 기댓값이 기댓값의 곱으로 분리된다(기댓값들이 존재할 때).",
+        "page": 2
+      },
+      {
+        "id": "TF7",
+        "question": "A continuous PDF f(x) can exceed one at some points.",
+        "answer": true,
+        "explanation": "PDF는 점의 확률이 아니라 확률밀도다. 전체 적분이 1이면 부분적으로 f(x)>1일 수 있다.",
+        "page": 2
+      },
+      {
+        "id": "TF8",
+        "question": "A Poisson random variable can take negative integer values.",
+        "answer": false,
+        "explanation": "포아송분포는 0,1,2,…와 같은 사건의 발생 횟수를 모델링한다.",
+        "page": 3
+      },
+      {
+        "id": "TF9",
+        "question": "An exponential random variable has the memoryless property.",
+        "answer": true,
+        "explanation": "P(T>s+t | T>s)=P(T>t), 즉 이미 기다린 시간에 영향을 받지 않는다.",
+        "page": 3
+      },
+      {
+        "id": "TF10",
+        "question": "For X ~ Binomial(n,p) with 0<p<1, Var(X)=np.",
+        "answer": false,
+        "explanation": "이항분포는 Var(X)=np(1-p)이다. np는 평균에 해당한다.",
+        "page": 3
+      }
+    ],
+    "written": [
+      {
+        "id": "C1",
+        "question": "Weekly market sales Weekly produce sales (in crates) over 8 observations: 15, 18, 20, 22, 25, 27, 30, 43.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Compute the mean and median and comment on the distribution.",
+            "answer": "합계는 200이므로 평균=200/8=25. 중앙값=(22+25)/2=23.5. 평균이 중앙값보다 약간 크며 오른쪽 꼬리의 가능성을 시사한다."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Compute Q1, Q3, and the upper outlier fence using (n+1) interpolation.",
+            "answer": "L25=2.25→Q1=18+0.25(20-18)=18.5. L75=6.75→Q3=27+0.75(30-27)=29.25. IQR=10.75. 상한=29.25+1.5×10.75=45.375. 최댓값 43은 이보다 작으므로 1.5×IQR 기준의 상측 이상치는 없다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Compute the sample standard deviation and coefficient of variation.",
+            "answer": "평균 25를 기준으로 제곱편차합=100+49+25+9+0+4+25+324=536. s²=536/7≈76.5714, s≈8.7505. CV=8.7505/25×100≈35.00%."
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "question": "Two crop-pest tests A pest affects 12% of fields. Conditional on infestation status, two tests are independent. Each test has sensitivity P(+ | D)=0.85 and false-positive rate P(+ | D^c)=0.10.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Calculate the probability that the first test is positive.",
+            "answer": "P(+)=0.12×0.85+0.88×0.10=0.102+0.088=0.190."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Given one positive test, find P(D | +).",
+            "answer": "P(D|+)=0.102/0.190≈0.5368. 양성이라는 정보가 감염 확률을 12%에서 약 53.7%로 높인다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Given two positive tests, find P(D | +,+). State where conditional independence is used.",
+            "answer": "감염 여부를 조건으로 두 검사 결과가 독립이므로 P(+,+|D)=0.85², P(+,+|D^c)=0.10². 따라서 P(D|+,+)=(0.12×0.85²)/(0.12×0.85²+0.88×0.10²)=0.0867/0.0955≈0.9079."
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "question": "Delivery orders, profit, and preparation Orders per day X: x = 0, 1, 2, 3; P(X=x) = 0.15, 0.35, 0.35, 0.15.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Calculate E(X), Var(X), and sd(X).",
+            "answer": "E(X)=0.35+2×0.35+3×0.15=1.5. E(X²)=0.35+4×0.35+9×0.15=3.10. Var(X)=3.10-2.25=0.85, sd(X)=√0.85≈0.9220."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Profit Y = 30X - 12 (thousand won). Calculate E(Y) and sd(Y).",
+            "answer": "E(Y)=30×1.5-12=33(천 원). sd(Y)=30√0.85≈27.659(천 원). 비용 -12는 표준편차에 영향을 주지 않는다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Four bills are paid independently; each is late with probability 0.2. Find P(exactly two late).",
+            "answer": "K~Binomial(4,0.2). P(K=2)=C(4,2)×0.2²×0.8²=6×0.04×0.64=0.1536."
+          },
+          {
+            "id": "d",
+            "points": 5,
+            "question": "Preparation time T ~ Normal(50, 8²) minutes. Find P(T>62) and the 90th percentile.",
+            "answer": "Z=(62-50)/8=1.5 → P(T>62)=1-Φ(1.5)=1-0.9332=0.0668. 90백분위수=50+1.2816×8≈60.2528분."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "filename": "LESE152_Practice_Set_3.pdf",
+    "objective": [
+      {
+        "id": "MC1",
+        "question": "Waiting time T is exponential with rate 0.25 per minute. Find P(T > 8).",
+        "options": [
+          "0.0183",
+          "0.1353",
+          "0.3679",
+          "0.8647"
+        ],
+        "answer": 1,
+        "explanation": "지수분포 생존함수 P(T>t)=e^(-λt); λt=0.25×8=2이므로 e^(-2)≈0.1353.",
+        "page": 1
+      },
+      {
+        "id": "MC2",
+        "question": "P(A)=0.3, P(B)=0.4, P(A ∩ B)=0.12. Find P(B | A).",
+        "options": [
+          "0.12",
+          "0.30",
+          "0.40",
+          "0.70"
+        ],
+        "answer": 2,
+        "explanation": "P(B|A)=P(A∩B)/P(A)=0.12/0.3=0.4. 이는 P(B)와 같으므로 독립이다.",
+        "page": 1
+      },
+      {
+        "id": "MC3",
+        "question": "X and Y are independent; sd(X)=3 and sd(Y)=4. Find Var(2X-Y).",
+        "options": [
+          "14",
+          "25",
+          "52",
+          "100"
+        ],
+        "answer": 2,
+        "explanation": "Var(2X-Y)=2²Var(X)+(-1)²Var(Y)=4×9+16=52. 공분산은 독립이므로 0이다.",
+        "page": 1
+      },
+      {
+        "id": "MC4",
+        "question": "X ~ Binomial(6, 0.5). What is P(X ≥ 5)?",
+        "options": [
+          "1/64",
+          "6/64",
+          "7/64",
+          "15/64"
+        ],
+        "answer": 2,
+        "explanation": "P(X=5)+P(X=6)=[C(6,5)+C(6,6)](0.5)^6=(6+1)/64=7/64.",
+        "page": 1
+      },
+      {
+        "id": "MC5",
+        "question": "Arrivals are Poisson with rate 2 per 30 minutes. Find P(no arrivals in 1 hour).",
+        "options": [
+          "e⁻¹",
+          "e⁻²",
+          "e⁻³",
+          "e⁻⁴"
+        ],
+        "answer": 3,
+        "explanation": "1시간은 30분의 2배이므로 λ=4. P(X=0)=e^(-4)≈0.0183.",
+        "page": 1
+      },
+      {
+        "id": "MC6",
+        "question": "X ~ Uniform(2,6). Find P(3 < X < 5).",
+        "options": [
+          "1/4",
+          "1/2",
+          "2/3",
+          "3/4"
+        ],
+        "answer": 1,
+        "explanation": "연속균등분포에서 (5-3)/(6-2)=2/4=0.5. 경계점의 포함 여부는 확률에 영향을 주지 않는다.",
+        "page": 1
+      },
+      {
+        "id": "MC7",
+        "question": "P(Good weather)=0.2, E(Y|Good)=30, E(Y|Bad)=10. Find E(Y).",
+        "options": [
+          "12",
+          "14",
+          "18",
+          "20"
+        ],
+        "answer": 1,
+        "explanation": "전기댓값법칙: E(Y)=0.2×30+0.8×10=6+8=14.",
+        "page": 2
+      },
+      {
+        "id": "MC8",
+        "question": "A long right tail in the distribution of income most commonly suggests:",
+        "options": [
+          "Mean < median",
+          "Mean > median",
+          "Mean = 0",
+          "Variance = 0"
+        ],
+        "answer": 1,
+        "explanation": "일반적으로 큰 고소득 값이 평균을 오른쪽으로 끌어올리므로 평균이 중앙값보다 크다.",
+        "page": 2
+      },
+      {
+        "id": "MC9",
+        "question": "Disease prevalence is 0.05, sensitivity 0.90, and false-positive rate 0.05. Find P(disease | +).",
+        "options": [
+          "0.0500",
+          "0.4500",
+          "0.4865",
+          "0.9000"
+        ],
+        "answer": 2,
+        "explanation": "베이즈: 0.05×0.90/[0.05×0.90+0.95×0.05]=0.045/0.0925≈0.4865.",
+        "page": 2
+      },
+      {
+        "id": "MC10",
+        "question": "Z=(X-μ)/σ, where 0<σ<∞. What is sd(Z)?",
+        "options": [
+          "0",
+          "1",
+          "σ",
+          "σ²"
+        ],
+        "answer": 1,
+        "explanation": "Var(Z)=Var((1/σ)X-μ/σ)=Var(X)/σ²=1. 따라서 표준편차도 1이다.",
+        "page": 2
+      },
+      {
+        "id": "TF1",
+        "question": "Zero covariance between X and Y always proves that they are independent.",
+        "answer": false,
+        "explanation": "공분산 0은 선형 연관이 없음을 뜻할 수 있으나 비선형 의존성이 남을 수 있다. 독립이면 공분산 0이지만 역은 일반적으로 거짓이다.",
+        "page": 2
+      },
+      {
+        "id": "TF2",
+        "question": "The identity E(X+Y)=E(X)+E(Y) requires X and Y to be independent.",
+        "answer": false,
+        "explanation": "기댓값의 선형성은 독립 여부에 상관없이 성립한다(기댓값 존재 가정).",
+        "page": 2
+      },
+      {
+        "id": "TF3",
+        "question": "For exponential T, P(T>30 | T>10) = P(T>20).",
+        "answer": true,
+        "explanation": "무기억성: P(T>s+t|T>s)=P(T>t)이며 여기서는 s=10, t=20이다.",
+        "page": 2
+      },
+      {
+        "id": "TF4",
+        "question": "For a continuous random variable, P(X=3) may be positive.",
+        "answer": false,
+        "explanation": "연속형 확률변수에서 정확히 한 점에 있을 확률은 0이다.",
+        "page": 2
+      },
+      {
+        "id": "TF5",
+        "question": "For any random variable X with finite variance, Var(2X-7)=4Var(X).",
+        "answer": true,
+        "explanation": "상수 이동 -7은 분산에 영향이 없고 계수 2는 제곱되어 4배가 된다.",
+        "page": 2
+      },
+      {
+        "id": "TF6",
+        "question": "A positive sample correlation is sufficient evidence that changing X will causally increase Y.",
+        "answer": false,
+        "explanation": "상관관계는 제3의 요인이나 역인과 가능성을 배제하지 않는다.",
+        "page": 2
+      },
+      {
+        "id": "TF7",
+        "question": "If A is a subset of B and P(B)>0, then P(A|B)=P(A)/P(B).",
+        "answer": true,
+        "explanation": "A⊆B이면 A∩B=A이므로 조건부확률 정의에 의해 바로 성립한다.",
+        "page": 2
+      },
+      {
+        "id": "TF8",
+        "question": "If X ~ Poisson(4), P(X=0)=e^(-4).",
+        "answer": true,
+        "explanation": "포아송 PMF에서 x=0을 대입하면 e^(-4)×4^0/0!=e^(-4)이다.",
+        "page": 3
+      },
+      {
+        "id": "TF9",
+        "question": "If the CDF F is continuous at x=3, then P(X=3)=0.",
+        "answer": true,
+        "explanation": "P(X=3)=F(3)-F(3-), 즉 CDF의 해당 점 점프 크기다. 연속이면 점프가 없다.",
+        "page": 3
+      },
+      {
+        "id": "TF10",
+        "question": "If X and Y are independent with finite variances, Var(X-Y)=Var(X)+Var(Y).",
+        "answer": true,
+        "explanation": "Var(X-Y)=Var(X)+Var(Y)-2Cov(X,Y). 독립이면 공분산 0이다.",
+        "page": 3
+      }
+    ],
+    "written": [
+      {
+        "id": "C1",
+        "question": "Rare high-sales day Daily farm-store sales (in tens of thousand won), sorted: 11, 12, 13, 13, 15, 16, 18, 19, 21, 48.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Calculate the mean and median and explain the effect of the large observation.",
+            "answer": "합계 186, n=10이므로 평균=18.6. 중앙값=(15+16)/2=15.5. 큰 값 48이 평균을 끌어올리므로 평균이 중앙값보다 크다."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Use Lp=(p/100)(n+1) to find Q1, Q3, and the upper outlier fence.",
+            "answer": "L25=0.25×11=2.75→Q1=12+0.75(13-12)=12.75. L75=0.75×11=8.25→Q3=19+0.25(21-19)=19.5. IQR=6.75; 상한=19.5+1.5×6.75=29.625. 48은 명백한 잠재적 이상치다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "Calculate the sample standard deviation and CV. Explain why CV can be high here.",
+            "answer": "Σ(xi-18.6)²=1054.4. s²=1054.4/9≈117.1556, s≈10.8238, CV=(10.8238/18.6)×100≈58.19%. 48이라는 큰 관측값이 제곱편차를 크게 만들어 산포가 커졌다."
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "question": "A conflicting second diagnostic test Only 5% of farms carry a crop disease D. Each test has sensitivity P(+|D)=0.95 and false-positive rate P(+|D^c)=0.08. The two test results are conditionally independent given D or D^c.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Find the probability that the first test is positive.",
+            "answer": "P(+)=0.05×0.95+0.95×0.08=0.0475+0.076=0.1235."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Given one positive test, find P(D|+).",
+            "answer": "P(D|+)=0.0475/0.1235≈0.3846. 양성이라도 기저유병률이 낮아서 사후확률이 약 38.5%다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "The first test is positive but the second test is negative. Find P(D|+,-).",
+            "answer": "조건부 독립성으로 P(+ ,-|D)=0.95×0.05, P(+ ,-|D^c)=0.08×0.92. 따라서 P(D|+,-)=0.05×0.95×0.05/[0.05×0.95×0.05+0.95×0.08×0.92]=0.002375/(0.002375+0.06992)≈0.0329. 두 번째 음성 결과가 사후확률을 크게 낮춘다."
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "question": "Risky farm returns and independent cost Per-acre random return X (thousand won) has PMF: x = -20, 0, 40, 100 with probabilities 0.2, 0.3, 0.4, 0.1.",
+        "subs": [
+          {
+            "id": "a",
+            "points": 5,
+            "question": "Calculate E(X), E(X²), Var(X), and sd(X).",
+            "answer": "E(X)=-20×0.2+0×0.3+40×0.4+100×0.1=-4+16+10=22. E(X²)=400×.2+1600×.4+10000×.1=80+640+1000=1720. Var(X)=1720-22²=1236; sd(X)=√1236≈35.1568."
+          },
+          {
+            "id": "b",
+            "points": 5,
+            "question": "Let Y=2X-15. Calculate E(Y) and sd(Y).",
+            "answer": "E(Y)=2×22-15=29. sd(Y)=2√1236≈70.3136(천 원). 상수 -15는 표준편차에 영향을 주지 않는다."
+          },
+          {
+            "id": "c",
+            "points": 5,
+            "question": "An independent variable cost C has E(C)=10 and sd(C)=12. For Z=2X-C-15, find E(Z) and sd(Z).",
+            "answer": "E(Z)=2×22-10-15=19. X와 C가 독립이므로 Var(Z)=2²×1236+(-1)²×12²=4944+144=5088. sd(Z)=√5088≈71.3302."
+          },
+          {
+            "id": "d",
+            "points": 5,
+            "question": "Delivery time T ~ Normal(40, 6²) minutes. Find P(T>49) and the 95th percentile.",
+            "answer": "Z표준화=(49-40)/6=1.5 → P(T>49)=1-Φ(1.5)=0.0668. 95백분위수=40+1.645×6=49.87분."
+          }
+        ]
+      }
+    ]
+  }
+]

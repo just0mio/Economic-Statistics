@@ -1,0 +1,45 @@
+import type { Lesson } from "./types";
+export const CONTENT_SOURCE = "직접 작성한 보충 설명·예제·퀴즈";
+export function L(
+  chapterId: number,
+  id: string,
+  title: string,
+  english: string,
+  summary: string,
+  definition: string,
+  explanation: string[],
+  formula: string,
+  symbols: string,
+  derivation: string[],
+  example: [string, string[], string],
+  application: string,
+  pitfalls: string[],
+  quiz: [string, string[], number, string],
+  extra: Partial<Lesson> = {},
+): Lesson {
+  return {
+    chapterId,
+    id,
+    title,
+    english,
+    summary,
+    definition,
+    explanation,
+    formula,
+    symbols,
+    derivation,
+    example: { question: example[0], steps: example[1], answer: example[2] },
+    application,
+    pitfalls,
+    quiz: {
+      question: quiz[0],
+      options: quiz[1],
+      answer: quiz[2],
+      explanation: quiz[3],
+    },
+    source: CONTENT_SOURCE,
+    sourcePage: null,
+    lecture: null,
+    ...extra,
+  };
+}

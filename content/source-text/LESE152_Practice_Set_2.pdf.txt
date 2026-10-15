@@ -1,0 +1,357 @@
+LESE152 / STATISTICS FOR ECONOMISTS                                                                PRACTICE SET 2 · STANDARD
+
+
+
+ STATISTICS FOR ECONOMISTS · LESE152
+
+
+ Practice Set 2
+ STANDARD / 실전 | 원본 PS1과 유사한 풀이량 및 문항 난도
+
+
+  Name: ______________________________                                Student ID: _________________________
+
+
+  Exam structure: 10 MCQ + 10 T/F + 3 short-answer questions          Total: 100 points | Suggested time: 80–95 min
+
+
+ Instructions: Choose one answer per MCQ. Mark True/False and provide a brief explanation. Show all major calculation steps
+ in Part C. Check units, conditioning events, and independence assumptions.
+
+     Standard normal: Φ(0.5)=0.6915, Φ(1)=0.8413, Φ(1.2816)=0.9000, Φ(1.5)=0.9332, Φ(1.645)=0.9500, Φ(1.96)=0.9750,
+     Φ(2)=0.9772.
+
+     For the standard normal, Φ(-z)=1-Φ(z). Useful exponentials: e⁻¹=0.3679, e⁻²=0.1353, e⁻³=0.0498, e⁻⁴=0.0183.
+
+     Percentile position convention: Lp=(p/100)(n+1), with linear interpolation between neighboring sorted observations.
+
+
+
+  PART A · MULTIPLE CHOICE (10 × 2 = 20 points)
+ MC1. Annual output of 100 farms tracked over five years forms which data structure?
+
+ (a) Cross-section                                               (b) Time series
+ (c) Panel                                                       (d) Census
+
+
+ MC2. Chebyshev’s inequality guarantees at least what fraction within 2 standard deviations?
+
+ (a) 50%                                                         (b) 68%
+ (c) 75%                                                         (d) 95%
+
+
+ MC3. A and B are independent, P(A)=0.5 and P(B)=0.4. Find P(A ∪ B).
+
+ (a) 0.20                                                        (b) 0.50
+ (c) 0.70                                                        (d) 0.90
+
+
+ MC4. A depot receives Poisson(3) trucks per hour. Find P(exactly one truck).
+
+ (a) 0.0498                                                      (b) 0.1494
+ (c) 0.2240                                                      (d) 0.9502
+
+
+ MC5. T ~ Uniform(12, 36) minutes. Find P(T < 20).
+
+ (a) 1/4                                                         (b) 1/3
+ (c) 1/2                                                         (d) 2/3
+
+
+ MC6. For sorted data 10,20,30,40,50,60,70, what is the 75th percentile using Lp=(p/100)(n+1)?
+
+ (a) 50                                                          (b) 55
+ (c) 60                                                          (d) 65
+
+
+
+
+Original practice material · Based on PS1 structure                                                                        1/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                             PRACTICE SET 2 · STANDARD
+
+
+
+ MC7. X ~ Binomial(10, 0.2). What is E(X)?
+
+ (a) 0.2                                                     (b) 1
+ (c) 2                                                       (d) 8
+
+
+ MC8. A sample correlation of -0.9 indicates:
+
+ (a) Strong negative linear association                      (b) Strong positive linear association
+ (c) Causality from X to Y                                   (d) Independence
+
+
+ MC9. T ~ Normal(80, 5²). Find P(T > 90).
+
+ (a) 0.0228                                                  (b) 0.1587
+ (c) 0.5000                                                  (d) 0.9772
+
+
+ MC10. Revenue R and cost C are independent with sd(R)=3 and sd(C)=4. Find sd(R-C).
+
+ (a) 1                                                       (b) 5
+ (c) 7                                                       (d) 25
+
+
+  PART B · TRUE / FALSE (10 × 3 = 30 points)
+ TF1. Under random sampling with finite mean, the sample mean is an unbiased estimator of the population
+ mean.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF2. If two events are mutually exclusive and both have positive probabilities, they must be independent.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF3. P(A | B) is always the same as P(B | A) whenever both are defined.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF4. If E(X) = 4 and E(X²) = 21, then Var(X) = 5.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF5. Adding the same positive constant to every observation leaves the coefficient of variation unchanged.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF6. If X and Y are independent, E(XY) = E(X)E(Y).
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF7. A continuous PDF f(x) can exceed one at some points.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+
+Original practice material · Based on PS1 structure                                                                  2/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                          PRACTICE SET 2 · STANDARD
+
+
+
+ TF8. A Poisson random variable can take negative integer values.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF9. An exponential random variable has the memoryless property.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF10. For X ~ Binomial(n,p) with 0<p<1, Var(X)=np.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+
+  PART C · SHORT ANSWERS (50 points)
+ C1. Weekly market sales
+
+ Weekly produce sales (in crates) over 8 observations: 15, 18, 20, 22, 25, 27, 30, 43.
+
+ (a) [5 pt] Compute the mean and median and comment on the distribution.
+
+
+
+
+ (b) [5 pt] Compute Q1, Q3, and the upper outlier fence using (n+1) interpolation.
+
+
+
+
+ (c) [5 pt] Compute the sample standard deviation and coefficient of variation.
+
+
+
+
+ C2. Two crop-pest tests
+
+ A pest affects 12% of fields. Conditional on infestation status, two tests are independent. Each test has sensitivity
+ P(+ | D)=0.85 and false-positive rate P(+ | D^c)=0.10.
+
+ (a) [5 pt] Calculate the probability that the first test is positive.
+
+
+
+
+ (b) [5 pt] Given one positive test, find P(D | +).
+
+
+
+
+Original practice material · Based on PS1 structure                                                                3/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                             PRACTICE SET 2 · STANDARD
+
+
+
+ (c) [5 pt] Given two positive tests, find P(D | +,+). State where conditional independence is used.
+
+
+
+
+ C3. Delivery orders, profit, and preparation
+
+ Orders per day X: x = 0, 1, 2, 3; P(X=x) = 0.15, 0.35, 0.35, 0.15.
+
+ (a) [5 pt] Calculate E(X), Var(X), and sd(X).
+
+
+
+
+ (b) [5 pt] Profit Y = 30X - 12 (thousand won). Calculate E(Y) and sd(Y).
+
+
+
+
+ (c) [5 pt] Four bills are paid independently; each is late with probability 0.2. Find P(exactly two late).
+
+
+
+
+ (d) [5 pt] Preparation time T ~ Normal(50, 8²) minutes. Find P(T>62) and the 90th percentile.
+
+
+
+
+Original practice material · Based on PS1 structure                                                                  4/6
+LESE152 / STATISTICS FOR ECONOMISTS                                 PRACTICE SET 2 · STANDARD
+
+
+
+
+ Answer Key & Detailed Solutions
+ 정답 확인은 문제를 먼저 끝까지 풀고 진행하세요. 각 해설에는 공식과 계산의 근거를 포함했습니다.
+
+
+  PART A · ANSWERS & EXPLANATIONS
+  MC1 C MC2 C MC3 C MC4 B MC5 B MC6 C MC7 C MC8 A MC9 A MC10 B
+
+
+ MC1 · C 여러 농가라는 횡단면 단위와 여러 연도라는 시간축이 동시에 있으므로 패널자료다.
+
+ MC2 · C 1-1/k²에서 k=2이면 1-1/4=0.75. 이는 정규분포 여부와 무관하다.
+
+ MC3 · C P(A∩B)=0.5×0.4=0.2, 따라서 P(A∪B)=0.5+0.4-0.2=0.7.
+
+ MC4 · B P(X=1)=e^(-3)×3¹/1!≈3×0.0498=0.1494.
+
+ MC5 · B (20-12)/(36-12)=8/24=1/3.
+
+ MC6 · C n=7이므로 L75=0.75×8=6. 여섯 번째 관측값은 60.
+
+ MC7 · C 이항분포 기댓값 E(X)=np=10×0.2=2.
+
+ MC8 · A -0.9는 강한 음의 선형관계를 의미한다. 인과관계나 독립성을 직접 결론 낼 수 없다.
+
+ MC9 · A Z=(90-80)/5=2, 따라서 P(Z>2)=1-Φ(2)=0.0228.
+
+ MC10 · B 독립일 때 Var(R-C)=3²+4²=25. 표준편차는 √25=5이다. 분산과 표준편차를 혼동하지 않는다.
+
+
+  PART B · ANSWERS & EXPLANATIONS
+ TF1 · TRUE 적절한 무작위 표본추출에서 E(x-bar)=μ이다. 다만 특정 한 표본의 평균이 반드시 μ와 같다는 뜻은 아니다.
+
+ TF2 · FALSE 양의 확률인 상호배반사건의 교집합은 0이므로 독립사건 곱셈식과 충돌한다.
+
+ TF3 · FALSE 조건부확률에서 분모가 각각 P(B), P(A)로 달라 일반적으로 값도 다르다.
+
+ TF4 · TRUE Var(X)=E(X²)-[E(X)]²=21-16=5.
+
+ TF5 · FALSE 표준편차는 변하지 않지만 평균이 커지므로 CV=s/x-bar는 보통 감소한다.
+
+ TF6 · TRUE 독립성이 있으면 곱의 기댓값이 기댓값의 곱으로 분리된다(기댓값들이 존재할 때).
+
+ TF7 · TRUE PDF는 점의 확률이 아니라 확률밀도다. 전체 적분이 1이면 부분적으로 f(x)>1일 수 있다.
+
+ TF8 · FALSE 포아송분포는 0,1,2,…와 같은 사건의 발생 횟수를 모델링한다.
+
+ TF9 · TRUE P(T>s+t | T>s)=P(T>t), 즉 이미 기다린 시간에 영향을 받지 않는다.
+
+ TF10 · FALSE 이항분포는 Var(X)=np(1-p)이다. np는 평균에 해당한다.
+
+
+  PART C · STEP-BY-STEP SOLUTIONS
+ C1. Weekly market sales
+
+
+
+
+Original practice material · Based on PS1 structure                                      5/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                                    PRACTICE SET 2 · STANDARD
+
+
+
+ (a) 합계는 200이므로 평균=200/8=25. 중앙값=(22+25)/2=23.5. 평균이 중앙값보다 약간 크며 오른쪽 꼬리의 가능성을
+ 시사한다.
+
+
+ (b) L25=2.25→Q1=18+0.25(20-18)=18.5. L75=6.75→Q3=27+0.75(30-27)=29.25. IQR=10.75.
+ 상한=29.25+1.5×10.75=45.375. 최댓값 43은 이보다 작으므로 1.5×IQR 기준의 상측 이상치는 없다.
+
+
+ (c) 평균 25를 기준으로 제곱편차합=100+49+25+9+0+4+25+324=536. s²=536/7≈76.5714, s≈8.7505.
+ CV=8.7505/25×100≈35.00%.
+
+
+
+ C2. Two crop-pest tests
+
+ (a) P(+)=0.12×0.85+0.88×0.10=0.102+0.088=0.190.
+
+
+ (b) P(D|+)=0.102/0.190≈0.5368. 양성이라는 정보가 감염 확률을 12%에서 약 53.7%로 높인다.
+
+
+ (c) 감염 여부를 조건으로 두 검사 결과가 독립이므로 P(+,+|D)=0.85², P(+,+|D^c)=0.10². 따라서
+ P(D|+,+)=(0.12×0.85²)/(0.12×0.85²+0.88×0.10²)=0.0867/0.0955≈0.9079.
+
+
+
+ C3. Delivery orders, profit, and preparation
+
+ (a) E(X)=0.35+2×0.35+3×0.15=1.5. E(X²)=0.35+4×0.35+9×0.15=3.10. Var(X)=3.10-2.25=0.85,
+ sd(X)=√0.85≈0.9220.
+
+
+ (b) E(Y)=30×1.5-12=33(천 원). sd(Y)=30√0.85≈27.659(천 원). 비용 -12는 표준편차에 영향을 주지 않는다.
+
+
+ (c) K~Binomial(4,0.2). P(K=2)=C(4,2)×0.2²×0.8²=6×0.04×0.64=0.1536.
+
+
+ (d) Z=(62-50)/8=1.5 → P(T>62)=1-Φ(1.5)=1-0.9332=0.0668. 90백분위수=50+1.2816×8≈60.2528분.
+
+
+
+  FINAL FORMULA & ERROR CHECK
+   Descriptive                 Sample variance s²=Σ(xi-x-bar)²/(n-1); sd=√s²; CV=sd/x-bar ×100%; IQR=Q3-Q1.
+
+   Probability                 P(A ∪ B)=P(A)+P(B)-P(A ∩ B); P(A|B)=P(A ∩ B)/P(B).
+
+   Bayes                       P(D|+)=P(+|D)P(D)/[P(+|D)P(D)+P(+|D^c)P(D^c)].
+
+   Moments                     E(X)=Σx p(x); Var(X)=E(X²)-[E(X)]²; E(a+bX)=a+bE(X); Var(a+bX)=b²Var(X).
+
+   Distributions               Binomial: E=np, Var=np(1-p). Poisson: P(X=k)=exp(-λ) × λ^k/k!, E=Var=λ.
+
+   Continuous                  Uniform(a,b): P(c<X<d)=(d-c)/(b-a). Exponential(rate λ): P(T>t)=exp(-λt).
+
+
+ 마지막 점검: ① 확률의 합 1 확인 ② 조건부확률의 분모 재확인 ③ n / n-1 구별 ④ E(X²)와 [E(X)]² 구별 ⑤ 분산과 표준편차의 단위 구별 ⑥
+ 독립성 가정 확인
+
+
+
+
+Original practice material · Based on PS1 structure                                                                         6/6
+

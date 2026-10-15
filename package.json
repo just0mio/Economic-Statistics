@@ -1,0 +1,47 @@
+{
+  "name": "lese152-study-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "build:portable": "tsc -b && vite build --config vite.portable.config.ts && python3 scripts/package_portable.py",
+    "test:portable": "node scripts/smoke-portable.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "format": "prettier --write src tests scripts/*.ts *.ts *.json *.html",
+    "content:audit": "python3 scripts/verify_sources.py && vite-node scripts/generate-audits.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/noto-sans-kr": "^5.3.1",
+    "@tailwindcss/vite": "^4.1.0",
+    "katex": "^0.16.22",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.0",
+    "recharts": "^3.0.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/katex": "^0.16.7",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.3",
+    "vite": "^6.4.0",
+    "vite-node": "^3.2.4",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

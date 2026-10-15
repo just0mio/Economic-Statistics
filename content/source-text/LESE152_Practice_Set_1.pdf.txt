@@ -1,0 +1,356 @@
+LESE152 / STATISTICS FOR ECONOMISTS                                                               PRACTICE SET 1 · FOUNDATION
+
+
+
+ STATISTICS FOR ECONOMISTS · LESE152
+
+
+ Practice Set 1
+ FOUNDATION / 기초 | 기본 공식과 자료의 의미를 정확히 이해하는 단계
+
+
+  Name: ______________________________                                Student ID: _________________________
+
+
+  Exam structure: 10 MCQ + 10 T/F + 3 short-answer questions          Total: 100 points | Suggested time: 80–95 min
+
+
+ Instructions: Choose one answer per MCQ. Mark True/False and provide a brief explanation. Show all major calculation steps
+ in Part C. Check units, conditioning events, and independence assumptions.
+
+     Standard normal: Φ(0.5)=0.6915, Φ(1)=0.8413, Φ(1.2816)=0.9000, Φ(1.5)=0.9332, Φ(1.645)=0.9500, Φ(1.96)=0.9750,
+     Φ(2)=0.9772.
+
+     For the standard normal, Φ(-z)=1-Φ(z). Useful exponentials: e⁻¹=0.3679, e⁻²=0.1353, e⁻³=0.0498, e⁻⁴=0.0183.
+
+     Percentile position convention: Lp=(p/100)(n+1), with linear interpolation between neighboring sorted observations.
+
+
+
+  PART A · MULTIPLE CHOICE (10 × 2 = 20 points)
+ MC1. Which variable is ordinal?
+
+ (a) Zip code                                                    (b) Satisfaction: poor / fair / good
+ (c) Province name                                               (d) Rice price
+
+
+ MC2. What is the sample mean of 4, 6, 8, and 10?
+
+ (a) 6                                                           (b) 7
+ (c) 8                                                           (d) 9
+
+
+ MC3. A sample has Q1 = 10 and Q3 = 18. What is the upper 1.5 × IQR fence?
+
+ (a) 24                                                          (b) 26
+ (c) 30                                                          (d) 32
+
+
+ MC4. If P(A) = 0.35, what is P(A^c)?
+
+ (a) 0.35                                                        (b) 0.65
+ (c) 0.70                                                        (d) 1.35
+
+
+ MC5. Delivery time T is Uniform(20, 50) minutes. Find P(T > 35).
+
+ (a) 1/4                                                         (b) 1/3
+ (c) 1/2                                                         (d) 3/4
+
+
+ MC6. Among 60 organic farms, 24 receive a subsidy. Find P(subsidy | organic).
+
+ (a) 0.24                                                        (b) 0.40
+ (c) 0.60                                                        (d) 0.75
+
+
+
+
+Original practice material · Based on PS1 structure                                                                        1/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                     PRACTICE SET 1 · FOUNDATION
+
+
+
+ MC7. X has values 0, 1, 2 with probabilities 0.2, 0.5, 0.3. Find E(X).
+
+ (a) 0.8                                                     (b) 1.1
+ (c) 1.3                                                     (d) 1.5
+
+
+ MC8. X ~ Binomial(4, 0.25). What is Var(X)?
+
+ (a) 0.25                                                    (b) 0.50
+ (c) 0.75                                                    (d) 1.00
+
+
+ MC9. X ~ Poisson(1). Approximately what is P(X = 0)?
+
+ (a) 0.1353                                                  (b) 0.3679
+ (c) 0.5000                                                  (d) 0.6321
+
+
+ MC10. T ~ Normal(100, 10²). Find P(T > 110).
+
+ (a) 0.1587                                                  (b) 0.3085
+ (c) 0.5000                                                  (d) 0.8413
+
+
+  PART B · TRUE / FALSE (10 × 3 = 30 points)
+ TF1. Postal codes are quantitative measurements, so their mean is meaningful.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF2. The sample median is usually more resistant to extreme observations than the sample mean.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF3. The usual unbiased sample variance divides the sum of squared deviations by n.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF4. If P(A ∩ B) = P(A)P(B), events A and B are independent.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF5. Two mutually exclusive events with positive probabilities are also independent.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF6. The probabilities in a valid discrete PMF sum to one.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF7. For any random variable X, E(2X + 5) = 2E(X) + 5.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+
+Original practice material · Based on PS1 structure                                                            2/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                         PRACTICE SET 1 · FOUNDATION
+
+
+
+ TF8. Adding 10 to X changes its variance.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF9. For a continuous distribution, the density f(x) can never be greater than one.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF10. An exponential waiting time is memoryless: time already waited does not change the probability of
+ waiting an additional fixed interval.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+
+  PART C · SHORT ANSWERS (50 points)
+ C1. Farmers’ market visitors
+
+ The number of visitors over 8 days is: 10, 12, 14, 16, 18, 20, 22, 40.
+
+ (a) [5 pt] Calculate the mean and median. What do they suggest about skewness?
+
+
+
+
+ (b) [5 pt] Find Q1 and Q3 using Lp = (p/100)(n+1) and interpolation. Use 1.5 × IQR to check for outliers.
+
+
+
+
+ (c) [5 pt] Calculate the sample standard deviation and coefficient of variation (in %).
+
+
+
+
+ C2. Pest warning test
+
+ 20% of fields are infested (D). A sensor signals (+) with probability 0.80 for an infested field, and with probability
+ 0.10 for a clean field.
+
+ (a) [5 pt] Find P(+).
+
+
+
+
+ (b) [5 pt] Find P(D | +).
+
+
+
+
+Original practice material · Based on PS1 structure                                                                 3/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                       PRACTICE SET 1 · FOUNDATION
+
+
+
+
+ (c) [5 pt] Find P(D | no signal).
+
+
+
+
+ C3. Catering orders and waiting time
+
+ The daily order count X has PMF: x = 0, 1, 2, 3 with probabilities 0.1, 0.4, 0.4, 0.1.
+
+ (a) [5 pt] Compute E(X), Var(X), and sd(X).
+
+
+
+
+ (b) [5 pt] Daily profit is Y = 20X - 5 (thousand won). Find E(Y) and sd(Y).
+
+
+
+
+ (c) [5 pt] Three customers pay independently; each is late with probability 0.10. Find P(exactly one late payment).
+
+
+
+
+ (d) [5 pt] Preparation time T ~ Uniform(10, 50) minutes. Find P(T > 40) and the 75th percentile of T.
+
+
+
+
+Original practice material · Based on PS1 structure                                                              4/6
+LESE152 / STATISTICS FOR ECONOMISTS                              PRACTICE SET 1 · FOUNDATION
+
+
+
+
+ Answer Key & Detailed Solutions
+ 정답 확인은 문제를 먼저 끝까지 풀고 진행하세요. 각 해설에는 공식과 계산의 근거를 포함했습니다.
+
+
+  PART A · ANSWERS & EXPLANATIONS
+  MC1 B MC2 B MC3 C MC4 B MC5 C MC6 B MC7 B MC8 C MC9 B MC10 A
+
+
+ MC1 · B 만족도는 순서가 있지만 인접 범주 사이 간격이 일정하다고 가정하기 어렵다. 우편번호·지역명은 명목형, 가격은
+ 수치형이다.
+
+ MC2 · B (4+6+8+10)/4 = 28/4 = 7.
+
+ MC3 · C IQR=18-10=8; 상한선은 18+1.5×8=30이다. 30을 초과한 값이 잠재적 이상치다.
+
+ MC4 · B 여사건 법칙: P(A^c)=1-P(A)=0.65.
+
+ MC5 · C 연속균등분포에서는 길이의 비율: (50-35)/(50-20)=15/30=0.5.
+
+ MC6 · B 조건이 organic이므로 분모는 전체 농가가 아니라 유기농 농가 60개: 24/60=0.40.
+
+ MC7 · B E(X)=0×0.2+1×0.5+2×0.3=1.1.
+
+ MC8 · C 이항분포의 분산은 np(1-p)=4×0.25×0.75=0.75.
+
+ MC9 · B 포아송 PMF: P(X=0)=e^(-1)×1^0/0!=e^(-1)≈0.3679.
+
+ MC10 · A Z=(110-100)/10=1. P(Z>1)=1-Φ(1)=1-0.8413=0.1587.
+
+
+  PART B · ANSWERS & EXPLANATIONS
+ TF1 · FALSE 숫자로 기록했어도 지역을 구별하는 식별자이므로 명목형이다. 평균 우편번호에는 경제적 의미가 없다.
+
+ TF2 · TRUE 중앙값은 정렬된 데이터의 가운데 위치에 기반하므로 극단값 변화에 비교적 둔감하다.
+
+ TF3 · FALSE 불편 표본분산은 n-1로 나눈다. 표본평균을 계산하면서 자유도 하나가 사용된다.
+
+ TF4 · TRUE 독립사건의 곱셈법칙이며 독립성의 판정 조건이다.
+
+ TF5 · FALSE 상호배반이면 P(A∩B)=0이지만 양의 확률을 가진 독립사건이면 P(A∩B)=P(A)P(B)>0이어야 한다.
+
+ TF6 · TRUE 전체 가능한 결과의 확률을 합하면 반드시 1이다.
+
+ TF7 · TRUE 기댓값의 선형성은 별도의 독립성 가정이 필요하지 않다.
+
+ TF8 · FALSE Var(X+10)=Var(X); 상수는 위치만 이동시키고 퍼짐을 변화시키지 않는다.
+
+ TF9 · FALSE 확률은 구간에 대한 밀도함수의 적분이다. 밀도 자체는 1을 넘을 수 있다.
+
+ TF10 · TRUE P(T>s+t | T>s)=P(T>t). 이는 지수분포의 무기억성이다.
+
+
+  PART C · STEP-BY-STEP SOLUTIONS
+ C1. Farmers’ market visitors
+
+
+
+Original practice material · Based on PS1 structure                                     5/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                                  PRACTICE SET 1 · FOUNDATION
+
+
+
+ (a) 합계=152, n=8이므로 평균=152/8=19. 중앙값=(16+18)/2=17. 평균이 중앙값보다 크며 40이라는 큰 값이 있으므로 우측
+ 치우침을 예상한다.
+
+
+ (b) L25=0.25×9=2.25 → Q1=12+0.25(14-12)=12.5. L75=0.75×9=6.75 → Q3=20+0.75(22-20)=21.5. IQR=9.
+ 하한=12.5-13.5=-1, 상한=21.5+13.5=35. 40>35이므로 이상치 후보이다.
+
+
+ (c) 평균 19를 이용한 제곱편차의 합은 81+49+25+9+1+1+9+441=616. 표본분산 s²=616/(8-1)=88, s=√88≈9.381.
+ CV=(9.381/19)×100≈49.37%.
+
+
+
+ C2. Pest warning test
+
+ (a) 전확률법칙: P(+)=0.20×0.80+0.80×0.10=0.16+0.08=0.24.
+
+
+ (b) 베이즈 정리: P(D|+)=0.20×0.80/0.24=0.16/0.24=2/3≈0.6667.
+
+
+ (c) P(-|D)=0.20, P(-|D^c)=0.90. P(D|-)=(0.20×0.20)/(0.20×0.20+0.80×0.90)=0.04/0.76≈0.0526.
+
+
+
+ C3. Catering orders and waiting time
+
+ (a) E(X)=0×.1+1×.4+2×.4+3×.1=1.5. E(X²)=0+.4+4×.4+9×.1=2.9. Var(X)=2.9-1.5²=0.65, sd(X)=√0.65≈0.8062.
+
+
+ (b) E(Y)=20E(X)-5=20×1.5-5=25(천 원). sd(Y)=|20|sd(X)≈20×0.8062=16.12(천 원).
+
+
+ (c) K~Binomial(3,0.1). P(K=1)=C(3,1)×0.1×0.9²=3×0.1×0.81=0.243.
+
+
+ (d) P(T>40)=(50-40)/(50-10)=10/40=0.25. 75백분위수=10+0.75(50-10)=40분.
+
+
+
+  FINAL FORMULA & ERROR CHECK
+   Descriptive                 Sample variance s²=Σ(xi-x-bar)²/(n-1); sd=√s²; CV=sd/x-bar ×100%; IQR=Q3-Q1.
+
+   Probability                 P(A ∪ B)=P(A)+P(B)-P(A ∩ B); P(A|B)=P(A ∩ B)/P(B).
+
+   Bayes                       P(D|+)=P(+|D)P(D)/[P(+|D)P(D)+P(+|D^c)P(D^c)].
+
+   Moments                     E(X)=Σx p(x); Var(X)=E(X²)-[E(X)]²; E(a+bX)=a+bE(X); Var(a+bX)=b²Var(X).
+
+   Distributions               Binomial: E=np, Var=np(1-p). Poisson: P(X=k)=exp(-λ) × λ^k/k!, E=Var=λ.
+
+   Continuous                  Uniform(a,b): P(c<X<d)=(d-c)/(b-a). Exponential(rate λ): P(T>t)=exp(-λt).
+
+
+ 마지막 점검: ① 확률의 합 1 확인 ② 조건부확률의 분모 재확인 ③ n / n-1 구별 ④ E(X²)와 [E(X)]² 구별 ⑤ 분산과 표준편차의 단위 구별 ⑥
+ 독립성 가정 확인
+
+
+
+
+Original practice material · Based on PS1 structure                                                                         6/6
+

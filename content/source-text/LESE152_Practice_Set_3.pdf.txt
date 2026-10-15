@@ -1,0 +1,356 @@
+LESE152 / STATISTICS FOR ECONOMISTS                                                               PRACTICE SET 3 · CHALLENGE
+
+
+
+ STATISTICS FOR ECONOMISTS · LESE152
+
+
+ Practice Set 3
+ CHALLENGE / 심화 | 여러 조건과 공식을 연결하여 응용하는 단계
+
+
+  Name: ______________________________                                Student ID: _________________________
+
+
+  Exam structure: 10 MCQ + 10 T/F + 3 short-answer questions          Total: 100 points | Suggested time: 80–95 min
+
+
+ Instructions: Choose one answer per MCQ. Mark True/False and provide a brief explanation. Show all major calculation steps
+ in Part C. Check units, conditioning events, and independence assumptions.
+
+     Standard normal: Φ(0.5)=0.6915, Φ(1)=0.8413, Φ(1.2816)=0.9000, Φ(1.5)=0.9332, Φ(1.645)=0.9500, Φ(1.96)=0.9750,
+     Φ(2)=0.9772.
+
+     For the standard normal, Φ(-z)=1-Φ(z). Useful exponentials: e⁻¹=0.3679, e⁻²=0.1353, e⁻³=0.0498, e⁻⁴=0.0183.
+
+     Percentile position convention: Lp=(p/100)(n+1), with linear interpolation between neighboring sorted observations.
+
+
+
+  PART A · MULTIPLE CHOICE (10 × 2 = 20 points)
+ MC1. Waiting time T is exponential with rate 0.25 per minute. Find P(T > 8).
+
+ (a) 0.0183                                                      (b) 0.1353
+ (c) 0.3679                                                      (d) 0.8647
+
+
+ MC2. P(A)=0.3, P(B)=0.4, P(A ∩ B)=0.12. Find P(B | A).
+
+ (a) 0.12                                                        (b) 0.30
+ (c) 0.40                                                        (d) 0.70
+
+
+ MC3. X and Y are independent; sd(X)=3 and sd(Y)=4. Find Var(2X-Y).
+
+ (a) 14                                                          (b) 25
+ (c) 52                                                          (d) 100
+
+
+ MC4. X ~ Binomial(6, 0.5). What is P(X ≥ 5)?
+
+ (a) 1/64                                                        (b) 6/64
+ (c) 7/64                                                        (d) 15/64
+
+
+ MC5. Arrivals are Poisson with rate 2 per 30 minutes. Find P(no arrivals in 1 hour).
+
+ (a) e⁻¹                                                         (b) e⁻²
+ (c) e⁻³                                                         (d) e⁻⁴
+
+
+ MC6. X ~ Uniform(2,6). Find P(3 < X < 5).
+
+ (a) 1/4                                                         (b) 1/2
+ (c) 2/3                                                         (d) 3/4
+
+
+
+
+Original practice material · Based on PS1 structure                                                                        1/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                       PRACTICE SET 3 · CHALLENGE
+
+
+
+ MC7. P(Good weather)=0.2, E(Y|Good)=30, E(Y|Bad)=10. Find E(Y).
+
+ (a) 12                                                      (b) 14
+ (c) 18                                                      (d) 20
+
+
+ MC8. A long right tail in the distribution of income most commonly suggests:
+
+ (a) Mean < median                                           (b) Mean > median
+ (c) Mean = 0                                                (d) Variance = 0
+
+
+ MC9. Disease prevalence is 0.05, sensitivity 0.90, and false-positive rate 0.05. Find P(disease | +).
+
+ (a) 0.0500                                                  (b) 0.4500
+ (c) 0.4865                                                  (d) 0.9000
+
+
+ MC10. Z=(X-μ)/σ, where 0<σ<∞. What is sd(Z)?
+
+ (a) 0                                                       (b) 1
+ (c) σ                                                       (d) σ²
+
+
+  PART B · TRUE / FALSE (10 × 3 = 30 points)
+ TF1. Zero covariance between X and Y always proves that they are independent.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF2. The identity E(X+Y)=E(X)+E(Y) requires X and Y to be independent.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF3. For exponential T, P(T>30 | T>10) = P(T>20).
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF4. For a continuous random variable, P(X=3) may be positive.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF5. For any random variable X with finite variance, Var(2X-7)=4Var(X).
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF6. A positive sample correlation is sufficient evidence that changing X will causally increase Y.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF7. If A is a subset of B and P(B)>0, then P(A|B)=P(A)/P(B).
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+
+Original practice material · Based on PS1 structure                                                             2/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                        PRACTICE SET 3 · CHALLENGE
+
+
+
+ TF8. If X ~ Poisson(4), P(X=0)=e^(-4).
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF9. If the CDF F is continuous at x=3, then P(X=3)=0.
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+ TF10. If X and Y are independent with finite variances, Var(X-Y)=Var(X)+Var(Y).
+ Mark: True [ ] False [ ] Explanation: __________________________________________
+
+
+
+
+  PART C · SHORT ANSWERS (50 points)
+ C1. Rare high-sales day
+
+ Daily farm-store sales (in tens of thousand won), sorted: 11, 12, 13, 13, 15, 16, 18, 19, 21, 48.
+
+ (a) [5 pt] Calculate the mean and median and explain the effect of the large observation.
+
+
+
+
+ (b) [5 pt] Use Lp=(p/100)(n+1) to find Q1, Q3, and the upper outlier fence.
+
+
+
+
+ (c) [5 pt] Calculate the sample standard deviation and CV. Explain why CV can be high here.
+
+
+
+
+ C2. A conflicting second diagnostic test
+
+ Only 5% of farms carry a crop disease D. Each test has sensitivity P(+|D)=0.95 and false-positive rate
+ P(+|D^c)=0.08. The two test results are conditionally independent given D or D^c.
+
+ (a) [5 pt] Find the probability that the first test is positive.
+
+
+
+
+ (b) [5 pt] Given one positive test, find P(D|+).
+
+
+
+
+Original practice material · Based on PS1 structure                                                              3/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                       PRACTICE SET 3 · CHALLENGE
+
+
+
+ (c) [5 pt] The first test is positive but the second test is negative. Find P(D|+,-).
+
+
+
+
+ C3. Risky farm returns and independent cost
+
+ Per-acre random return X (thousand won) has PMF: x = -20, 0, 40, 100 with probabilities 0.2, 0.3, 0.4, 0.1.
+
+ (a) [5 pt] Calculate E(X), E(X²), Var(X), and sd(X).
+
+
+
+
+ (b) [5 pt] Let Y=2X-15. Calculate E(Y) and sd(Y).
+
+
+
+
+ (c) [5 pt] An independent variable cost C has E(C)=10 and sd(C)=12. For Z=2X-C-15, find E(Z) and sd(Z).
+
+
+
+
+ (d) [5 pt] Delivery time T ~ Normal(40, 6²) minutes. Find P(T>49) and the 95th percentile.
+
+
+
+
+Original practice material · Based on PS1 structure                                                             4/6
+LESE152 / STATISTICS FOR ECONOMISTS                                  PRACTICE SET 3 · CHALLENGE
+
+
+
+
+ Answer Key & Detailed Solutions
+ 정답 확인은 문제를 먼저 끝까지 풀고 진행하세요. 각 해설에는 공식과 계산의 근거를 포함했습니다.
+
+
+  PART A · ANSWERS & EXPLANATIONS
+  MC1 B MC2 C MC3 C MC4 C MC5 D MC6 B MC7 B MC8 B MC9 C MC10 B
+
+
+ MC1 · B 지수분포 생존함수 P(T>t)=e^(-λt); λt=0.25×8=2이므로 e^(-2)≈0.1353.
+
+ MC2 · C P(B|A)=P(A∩B)/P(A)=0.12/0.3=0.4. 이는 P(B)와 같으므로 독립이다.
+
+ MC3 · C Var(2X-Y)=2²Var(X)+(-1)²Var(Y)=4×9+16=52. 공분산은 독립이므로 0이다.
+
+ MC4 · C P(X=5)+P(X=6)=[C(6,5)+C(6,6)](0.5)^6=(6+1)/64=7/64.
+
+ MC5 · D 1시간은 30분의 2배이므로 λ=4. P(X=0)=e^(-4)≈0.0183.
+
+ MC6 · B 연속균등분포에서 (5-3)/(6-2)=2/4=0.5. 경계점의 포함 여부는 확률에 영향을 주지 않는다.
+
+ MC7 · B 전기댓값법칙: E(Y)=0.2×30+0.8×10=6+8=14.
+
+ MC8 · B 일반적으로 큰 고소득 값이 평균을 오른쪽으로 끌어올리므로 평균이 중앙값보다 크다.
+
+ MC9 · C 베이즈: 0.05×0.90/[0.05×0.90+0.95×0.05]=0.045/0.0925≈0.4865.
+
+ MC10 · B Var(Z)=Var((1/σ)X-μ/σ)=Var(X)/σ²=1. 따라서 표준편차도 1이다.
+
+
+  PART B · ANSWERS & EXPLANATIONS
+ TF1 · FALSE 공분산 0은 선형 연관이 없음을 뜻할 수 있으나 비선형 의존성이 남을 수 있다. 독립이면 공분산 0이지만 역은
+ 일반적으로 거짓이다.
+
+ TF2 · FALSE 기댓값의 선형성은 독립 여부에 상관없이 성립한다(기댓값 존재 가정).
+
+ TF3 · TRUE 무기억성: P(T>s+t|T>s)=P(T>t)이며 여기서는 s=10, t=20이다.
+
+ TF4 · FALSE 연속형 확률변수에서 정확히 한 점에 있을 확률은 0이다.
+
+ TF5 · TRUE 상수 이동 -7은 분산에 영향이 없고 계수 2는 제곱되어 4배가 된다.
+
+ TF6 · FALSE 상관관계는 제3의 요인이나 역인과 가능성을 배제하지 않는다.
+
+ TF7 · TRUE A⊆B이면 A∩B=A이므로 조건부확률 정의에 의해 바로 성립한다.
+
+ TF8 · TRUE 포아송 PMF에서 x=0을 대입하면 e^(-4)×4^0/0!=e^(-4)이다.
+
+ TF9 · TRUE P(X=3)=F(3)-F(3-), 즉 CDF의 해당 점 점프 크기다. 연속이면 점프가 없다.
+
+ TF10 · TRUE Var(X-Y)=Var(X)+Var(Y)-2Cov(X,Y). 독립이면 공분산 0이다.
+
+
+  PART C · STEP-BY-STEP SOLUTIONS
+ C1. Rare high-sales day
+
+
+
+Original practice material · Based on PS1 structure                                        5/6
+LESE152 / STATISTICS FOR ECONOMISTS                                                                   PRACTICE SET 3 · CHALLENGE
+
+
+
+ (a) 합계 186, n=10이므로 평균=18.6. 중앙값=(15+16)/2=15.5. 큰 값 48이 평균을 끌어올리므로 평균이 중앙값보다 크다.
+
+
+ (b) L25=0.25×11=2.75→Q1=12+0.75(13-12)=12.75. L75=0.75×11=8.25→Q3=19+0.25(21-19)=19.5. IQR=6.75;
+ 상한=19.5+1.5×6.75=29.625. 48은 명백한 잠재적 이상치다.
+
+
+ (c) Σ(xi-18.6)²=1054.4. s²=1054.4/9≈117.1556, s≈10.8238, CV=(10.8238/18.6)×100≈58.19%. 48이라는 큰
+ 관측값이 제곱편차를 크게 만들어 산포가 커졌다.
+
+
+
+ C2. A conflicting second diagnostic test
+
+ (a) P(+)=0.05×0.95+0.95×0.08=0.0475+0.076=0.1235.
+
+
+ (b) P(D|+)=0.0475/0.1235≈0.3846. 양성이라도 기저유병률이 낮아서 사후확률이 약 38.5%다.
+
+
+ (c) 조건부 독립성으로 P(+ ,-|D)=0.95×0.05, P(+ ,-|D^c)=0.08×0.92. 따라서
+ P(D|+,-)=0.05×0.95×0.05/[0.05×0.95×0.05+0.95×0.08×0.92]=0.002375/(0.002375+0.06992)≈0.0329. 두 번째
+ 음성 결과가 사후확률을 크게 낮춘다.
+
+
+
+ C3. Risky farm returns and independent cost
+
+ (a) E(X)=-20×0.2+0×0.3+40×0.4+100×0.1=-4+16+10=22.
+ E(X²)=400×.2+1600×.4+10000×.1=80+640+1000=1720. Var(X)=1720-22²=1236; sd(X)=√1236≈35.1568.
+
+
+ (b) E(Y)=2×22-15=29. sd(Y)=2√1236≈70.3136(천 원). 상수 -15는 표준편차에 영향을 주지 않는다.
+
+
+ (c) E(Z)=2×22-10-15=19. X와 C가 독립이므로 Var(Z)=2²×1236+(-1)²×12²=4944+144=5088. sd(Z)=√5088≈71.3302.
+
+
+ (d) Z표준화=(49-40)/6=1.5 → P(T>49)=1-Φ(1.5)=0.0668. 95백분위수=40+1.645×6=49.87분.
+
+
+
+  FINAL FORMULA & ERROR CHECK
+   Descriptive                 Sample variance s²=Σ(xi-x-bar)²/(n-1); sd=√s²; CV=sd/x-bar ×100%; IQR=Q3-Q1.
+
+   Probability                 P(A ∪ B)=P(A)+P(B)-P(A ∩ B); P(A|B)=P(A ∩ B)/P(B).
+
+   Bayes                       P(D|+)=P(+|D)P(D)/[P(+|D)P(D)+P(+|D^c)P(D^c)].
+
+   Moments                     E(X)=Σx p(x); Var(X)=E(X²)-[E(X)]²; E(a+bX)=a+bE(X); Var(a+bX)=b²Var(X).
+
+   Distributions               Binomial: E=np, Var=np(1-p). Poisson: P(X=k)=exp(-λ) × λ^k/k!, E=Var=λ.
+
+   Continuous                  Uniform(a,b): P(c<X<d)=(d-c)/(b-a). Exponential(rate λ): P(T>t)=exp(-λt).
+
+
+ 마지막 점검: ① 확률의 합 1 확인 ② 조건부확률의 분모 재확인 ③ n / n-1 구별 ④ E(X²)와 [E(X)]² 구별 ⑤ 분산과 표준편차의 단위 구별 ⑥
+ 독립성 가정 확인
+
+
+
+
+Original practice material · Based on PS1 structure                                                                         6/6
+
