@@ -198,10 +198,42 @@ export function Settings() {
     </div>
   );
 }
-const originals = [
-  "경제통계학.pdf",
-  "LESE152_PS1.pdf",
-  ...Array.from({ length: 5 }, (_, i) => `LESE152_Practice_Set_${i + 1}.pdf`),
+const materials = [
+  {
+    file: "lecture.pdf",
+    title: "경제통계학.pdf",
+    detail: "원본 합본 269쪽 · Lecture 1–5 · 수정 없이 보관",
+  },
+  {
+    file: "L4_Probability.pdf",
+    title: "Lecture 4 · Probability",
+    detail: "합본 187–228쪽에서 추출한 42쪽 발췌본 · 새로 제공된 원본이 아님",
+  },
+  {
+    file: "L5_Discrete_Random_Variables.pdf",
+    title: "Lecture 5 · Discrete Random Variables",
+    detail: "합본 229–269쪽에서 추출한 41쪽 발췌본 · 손글씨 삽입 포함",
+  },
+  {
+    file: "L6_Exam_Scope_Through_Normal.pdf",
+    title: "Lecture 6 · 시험범위본",
+    detail: "첨부 원본의 1–18쪽 발췌 · 연속확률변수, 연속균등, 정규분포까지",
+  },
+  {
+    file: "L6_Continuous_Random_Variables.pdf",
+    title: "Lecture 6 · 전체 원본",
+    detail: "32쪽 원본 보존 · 19–32쪽은 이번 지정 범위에 포함하지 않음",
+  },
+  {
+    file: "LESE152_PS1.pdf",
+    title: "교수자 PS1",
+    detail: "7쪽 · 실제 과제 참고 · 연습 세트와 구분",
+  },
+  ...Array.from({ length: 5 }, (_, i) => ({
+    file: `LESE152_Practice_Set_${i + 1}.pdf`,
+    title: `Practice Set ${i + 1}`,
+    detail: `제공된 원본 ${i < 3 ? 6 : 8}쪽 · 100점 · 범위 밖 문항과 원문 오류는 별도 표시`,
+  })),
 ];
 export function Sources() {
   return (
@@ -210,79 +242,78 @@ export function Sources() {
         <div>
           <span className="eyebrow">TRANSPARENT SOURCES, BETTER LEARNING</span>
           <h1>자료 및 콘텐츠 출처</h1>
-          <p>확인된 자료와 보충 설명을 명확하게 구분합니다.</p>
+          <p>원문·추출본·앱의 보완 설명과 시험범위를 구분합니다.</p>
         </div>
       </div>
       <div className="source-explanation">
-        <h2>강의 전체와 원본 연습 3개를 반영했습니다.</h2>
+        <h2>Lecture 6 정규분포까지 · 원본 Practice Set 1–5</h2>
         <p>
-          제공된 강의 PDF는 269페이지입니다. Lecture 1–5와 Lecture 2의 중복
-          버전을 검토하고, 확장본의 추가 예제와 확률분포를 연결했습니다. PS1은
-          7페이지, Practice Set 1–3은 각각 6페이지입니다.
+          기존 269쪽 합본과 새 Lecture 6 원본 32쪽을 확인했습니다. 이번
+          시험범위의 Lecture 6은 1–18쪽이며 19쪽 이후 다변량 단원과 뒤의
+          연습문제는 추가하지 않았습니다. 지수분포는 기존 PS1의 범위 밖
+          보충으로만 유지합니다.
         </p>
         <p>
-          한국어 설명·유도·확인 퀴즈는 학습을 위해 재구성했습니다. “원문 예제”는
-          페이지를 표시하고, 창작 보충 세트는 원본 세트와 별도로 제공합니다.
-          원문 PDF는 수정 없이 보관했으며 검산에서 발견한 오류는 감사 문서에
-          남겼습니다.
+          Lecture 4·5는 기존 합본에서 내용과 순서를 바꾸지 않고 발췌하여 함께
+          제공합니다. 독립된 새 Lecture 4·5 원본을 제공받았다고 표현하지
+          않습니다. 한국어 설명·유도·퀴즈와 원문 예제는 페이지 표시로
+          구분합니다.
         </p>
       </div>
       <div className="source-list">
-        {originals.map((f, i) => (
-          <article key={f}>
+        {materials.map((m) => (
+          <article key={m.file}>
             <span className="file-icon">
               <FileText size={23} />
             </span>
             <div>
-              <h3>{f}</h3>
-              <p>
-                {i === 0
-                  ? "강의 원본 · 269페이지 · Lecture 1–5"
-                  : i === 1
-                    ? "교수자 과제 · 7페이지 · 연습 세트와 별도 참고자료"
-                    : `원본 Practice Set ${i - 1} · 창작 보충 연습과 구분`}
-              </p>
+              <h3>{m.title}</h3>
+              <p>{m.detail}</p>
             </div>
-            {i <= 4 ? (
-              <a
-                className="button secondary"
-                href={`./materials/${i === 0 ? "lecture.pdf" : f}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                원본 PDF ↗
-              </a>
-            ) : (
-              <span className="missing-tag">자료 미제공</span>
-            )}
+            <a
+              className="button secondary"
+              href={`./materials/${m.file}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              PDF 열기 ↗
+            </a>
           </article>
         ))}
       </div>
       <section className="settings-section">
-        <h2>콘텐츠를 읽을 때 알아두세요</h2>
+        <h2>시험범위와 원문 검산</h2>
         <ul className="readable-list">
           <li>
-            6개 Chapter는 사용자 요청 범위에 맞춘 구성입니다. 원본 Lecture와의
-            일대일 대응이 아닙니다.
+            6개 Chapter는 학습용 구성입니다. Lecture와 항상 일대일로 대응하지
+            않습니다. Chapter 6의 연속균등·정규·분위수는 이제 실제 Lecture 6의
+            출처를 연결합니다.
           </li>
           <li>
-            Chapter 6은 PS1에서 확인한 연속균등(MC5), 정규(C3d), 지수분포와
-            무기억성(TF10)을 다룹니다. 제공된 Lecture 1–5에는 이 연속분포의 상세
-            단원이 없습니다.
+            챕터·공식·오답 연습은 범위 밖 보충과 원문 오류 보류 문항을 기본
+            제외합니다. 원본 전체 세트는 원래 100점 구조를 유지하므로 범위 밖
+            문항이 포함됩니다. “시험범위 연습”은 해당 소문항만 선택하며 100점
+            시험으로 환산하지 않습니다.
           </li>
           <li>
-            원본 Practice Set 1–3의 문항·정답·배점은 유지했습니다. 보충 연습
-            1–5는 별도의 창작 문제입니다. 원본 Set 4–5와 기존 앱 초안은
-            미제공입니다.
+            새 원본 Set 4·5에는 PDF 화면에서도 일부 음수 부호·지수가 누락되어
+            있습니다. 원문 영어·정답표는 보존하고 보완한 한국어 조건과 계산
+            근거를 명시했습니다. Set 5 MC4(선택지 부호), TF10(지수 누락)은
+            자동채점하지 않으며 미채점/자가평가로 구분합니다.
           </li>
           <li>
-            R 예제는 실행 코드와 예상 결과를 제공합니다. 강의의 농업·기상 CSV는
-            미제공이므로 원문에 보고된 상관계수와 앱에서 검산한 수치를
-            구분합니다. 브라우저 내 R 런타임은 포함하지 않습니다.
+            Lecture 6의 안전재고 원문은 약623개로 반올림합니다. 정확한 연속
+            임계값은 약623.2249, 정수로 부족확률≤2%를 만족하는
+            재고는624개입니다. 원문은 수정하지 않고 계산기와 감사 문서에 차이를
+            표시합니다.
           </li>
           <li>
-            지수·정규 계산은 수치 근사를 포함합니다. 정규 CDF의 절대오차는 약
-            7.5×10⁻⁸ 이하인 근사식을 사용합니다.
+            R 예제는 코드·예상 출력·해설입니다. 원본 농업·기상 CSV와 브라우저 내
+            R 실행기는 제공되지 않았습니다.
+          </li>
+          <li>
+            정규 CDF는 절대오차 약7.5×10⁻⁸ 이하인 수치 근사입니다. 실제
+            iPad/Safari 시험과 Chromium 반응형 검증을 구분합니다.
           </li>
         </ul>
       </section>
@@ -290,14 +321,9 @@ export function Sources() {
         <h2>교수자 PS1 · 과제 참고</h2>
         <p>
           10 MCQ(20점), 10 T/F(30점, 설명 요구), 3개 Short Answers(15+15+20점)의
-          100점 형식을 확인했습니다. Practice Set과 과제 제출물을 혼동하지
-          않도록 PS1은 PDF 참고자료로 제공합니다.
-        </p>
-        <p>
-          C2(c)의 두 트랩은 감염 여부에 <strong>조건부로 독립</strong>이라는
-          해석 아래 반복 베이즈 계산을 합니다. 전체 표본에서 결과 자체가
-          독립이라는 뜻과 구분해야 합니다. 원문에는 공식 답안이 포함되지
-          않았습니다.
+          100점 형식입니다. 공식 답안은 제공되지 않았으며 앱 독립 검산과
+          구분합니다. C2(c)의 반복 검사는 감염 상태에 조건부인 독립으로
+          해석합니다.
         </p>
         <a
           className="button secondary"
@@ -309,16 +335,15 @@ export function Sources() {
         </a>
       </section>
       <div className="audit-links">
-        <a href="./CONTENT_AUDIT.md" download>
-          <FileText size={19} />
-          콘텐츠 감사 문서
-          <ArrowUpRight size={16} />
-        </a>
-        <a href="./QUESTION_AUDIT.md" download>
-          <FileText size={19} />
-          문항 검증 문서
-          <ArrowUpRight size={16} />
-        </a>
+        {["CONTENT_AUDIT.md", "QUESTION_AUDIT.md"].map((file) => (
+          <a key={file} href={`./${file}`} download>
+            <FileText size={19} />
+            {file === "CONTENT_AUDIT.md"
+              ? "콘텐츠 감사 문서"
+              : "문항 검증 문서"}
+            <ArrowUpRight size={16} />
+          </a>
+        ))}
       </div>
     </div>
   );

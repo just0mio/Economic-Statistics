@@ -7,7 +7,7 @@ export interface Grade {
   status: "correct" | "incorrect" | "pending" | "self";
 }
 export function gradeQuestion(q: Question, r?: Response): Grade {
-  if (q.type === "written") {
+  if (q.type === "written" || q.autoGrade === false) {
     if (
       r?.selfScore !== undefined &&
       Number.isFinite(r.selfScore) &&
@@ -58,15 +58,17 @@ export function summarize(qs: Question[], answers: Record<string, Response>) {
     earned: rows.reduce((s, r) => s + r.grade.earned, 0),
     pending: rows.reduce((s, r) => s + r.grade.pending, 0),
     autoPossible: rows
-      .filter((r) => r.q.type !== "written")
+      .filter((r) => r.q.type !== "written" && r.q.autoGrade !== false)
       .reduce((s, r) => s + r.q.points, 0),
     autoEarned: rows
-      .filter((r) => r.q.type !== "written")
+      .filter((r) => r.q.type !== "written" && r.q.autoGrade !== false)
       .reduce((s, r) => s + r.grade.earned, 0),
     selfEarned: rows
       .filter((r) => r.grade.status === "self")
       .reduce((s, r) => s + r.grade.earned, 0),
     correct: rows.filter((r) => r.grade.status === "correct").length,
-    autoCount: rows.filter((r) => r.q.type !== "written").length,
+    autoCount: rows.filter(
+      (r) => r.q.type !== "written" && r.q.autoGrade !== false,
+    ).length,
   };
 }

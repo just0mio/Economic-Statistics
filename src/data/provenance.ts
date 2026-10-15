@@ -63,6 +63,15 @@ const ps1Pages: Record<string, number[]> = {
   exponential: [4],
   strategy: [1, 2, 4, 6, 7],
 };
+export const lecture6PageMap: Record<string, number[]> = {
+  "continuous-density": [3, 4, 5, 6],
+  "continuous-uniform": [7, 8, 9],
+  normal: [10, 11, 13, 14],
+  "normal-linear": [12],
+  "normal-cdf": [13, 15, 16],
+  quantile: [17],
+  "normal-stock": [18],
+};
 export function lectureAtPage(page: number): string {
   if (page <= 49) return "Lecture 1";
   if (page <= 83) return "Lecture 2 · 34장 버전";
@@ -281,6 +290,90 @@ examples["variance-rv"].push({
   text: "X=−10,20,50, p=.2,.5,.3. CDF는 해당 지지점에서 .2,.7,1. P(X>0)=.8, E[X]=23, E[X²]=970, Var=441, SD21. Y=.8X−5의 평균13.4, SD16.8. 원문 해설265쪽.",
 });
 export function attachProvenance(lesson: Lesson): Lesson {
+  const l6pages = lecture6PageMap[lesson.id];
+  const l6examples: Record<string, NonNullable<Lesson["originalExamples"]>> = {
+    "continuous-density": [
+      {
+        title: "원문 예제 · 표준균등 CDF",
+        page: 4,
+        text: "X~U(0,1): F(x)=0(x<0), x(0≤x≤1), 1(x>1). P(.65<X<.70)=F(.70)−F(.65)=.05.",
+      },
+    ],
+    "continuous-uniform": [
+      {
+        title: "원문 예제 · U(2,5)의 분위수와 모멘트",
+        page: 8,
+        text: "E(X)=3.5, Var(X)=.75, SD≈.866. 90백분위수=2+.9×3=4.7. 2X+2~U(6,12).",
+      },
+      {
+        title: "원문 예제 · 배송 도착시간",
+        page: 9,
+        text: "9–11시 사이 균등 도착: X~U(0,120)분. 9:30 이전확률=.25, 10:00 정확히 도착할 확률=0. 평균60분, SD≈34.6분, 90백분위수108분(10:48).",
+      },
+    ],
+    "normal-linear": [
+      {
+        title: "원문 예제 · 정규 선형변환",
+        page: 12,
+        text: "X~N(2,9): X+1~N(3,9), 2X~N(4,36), −2X~N(−4,36). X²는 음수가 될 수 없으므로 일반적으로 정규가 아니다.",
+      },
+    ],
+    "normal-cdf": [
+      {
+        title: "원문 예제 · 표준정규 표",
+        page: 15,
+        text: "P(−1.5≤Z≤2)=.9772−.0668=.9104. P(Z≥1.75)=1−.9599=.0401. 표의 네 자리 반올림과 앱 수치함수 결과를 구분한다.",
+      },
+      {
+        title: "원문 예제 · 주간 매출",
+        page: 16,
+        text: "X~N(25000,4000²). 20000 미만은 z=−1.25로 약.106; 30000 초과도 대칭으로 같다. 22000–28000은 z=±.75로 약.547.",
+      },
+    ],
+    quantile: [
+      {
+        title: "원문 예제 · 역 CDF",
+        page: 17,
+        text: "N(100,15²)의 90백분위수는 원문 표 z≈1.28로 119.2. 정확 역CDF는 약119.2233. 중앙90% 구간은 μ±1.645σ로 근사한다.",
+      },
+    ],
+    "normal-stock": [
+      {
+        title: "원문 예제 · 안전재고",
+        page: 18,
+        text: "수요 N(500,60²), 재고550의 부족확률≈.20. 부족 2% 목표는 98백분위수 500+2.054×60≈623개로 표시한다.",
+        note: "원문은 반올림 근삿값이다. 정확한 연속 임계값≈623.2249이며, 정수 재고로 부족확률≤2%를 만족하려면 624개로 올려야 한다. PDF는 수정하지 않았다.",
+      },
+    ],
+  };
+  if (l6pages)
+    return {
+      ...lesson,
+      source:
+        "Lecture 6 원문 개념을 바탕으로 재구성 · 직접 작성한 예제·퀴즈는 별도 표시",
+      sourcePage: l6pages[0],
+      lecture: "Lecture 6",
+      references: [
+        {
+          file: "L6_Continuous_Random_Variables.pdf",
+          pages: l6pages,
+          label: "Lecture 6 · 정규분포까지 (1–18쪽)",
+        },
+        ...(ps1Pages[lesson.id]
+          ? [
+              {
+                file: "LESE152_PS1.pdf",
+                pages: ps1Pages[lesson.id],
+                label: "교수자 PS1 · 관련 문항",
+              },
+            ]
+          : []),
+      ],
+      originalExamples: (l6examples[lesson.id] ?? []).map((e) => ({
+        ...e,
+        file: "L6_Continuous_Random_Variables.pdf",
+      })),
+    };
   const pages = lecturePageMap[lesson.id];
   const groups = new Map<string, number[]>();
   for (const page of pages ?? []) {
@@ -303,7 +396,10 @@ export function attachProvenance(lesson: Lesson): Lesson {
   const ps = ps1Pages[lesson.id];
   return {
     ...lesson,
-    source: "PS1 추가 대비 · 원문 주제를 바탕으로 작성한 보충 설명",
+    source:
+      lesson.id === "exponential"
+        ? "이번 시험범위 밖 보충 · PS1의 지수분포·무기억성"
+        : "PS1 관련 보충 · 문제 풀이 전략",
     sourcePage: ps?.[0] ?? null,
     lecture: null,
     references: ps

@@ -93,6 +93,7 @@ export function DistributionLab({
     [expanded, setExpanded] = useState(false),
     [view, setView] = useState<"pmf" | "cdf">("pmf");
   const discrete = ["bernoulli", "binomial", "poisson"].includes(type);
+  const [includeExtras, setIncludeExtras] = useState(initial === "exponential");
   const max =
     type === "bernoulli"
       ? 1
@@ -286,6 +287,25 @@ export function DistributionLab({
   );
   return (
     <section className="lab-widget">
+      {!fixed && (
+        <label className="scope-toggle">
+          <input
+            type="checkbox"
+            checked={includeExtras}
+            onChange={(e) => {
+              setIncludeExtras(e.target.checked);
+              if (!e.target.checked && type === "exponential")
+                setType("normal");
+            }}
+          />
+          범위 밖 지수분포 포함
+        </label>
+      )}
+      {type === "exponential" && (
+        <p className="audit-note">
+          지수분포는 이번 시험범위 밖 PS1 보충입니다.
+        </p>
+      )}
       <div className="lab-toolbar">
         <div>
           <span className="eyebrow">
@@ -307,11 +327,13 @@ export function DistributionLab({
               setX(1);
             }}
           >
-            {Object.entries(distributionNames).map(([v, name]) => (
-              <option value={v} key={v}>
-                {name}
-              </option>
-            ))}
+            {Object.entries(distributionNames)
+              .filter(([v]) => includeExtras || v !== "exponential")
+              .map(([v, name]) => (
+                <option value={v} key={v}>
+                  {name}
+                </option>
+              ))}
           </select>
         )}
       </div>

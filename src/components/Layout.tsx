@@ -19,7 +19,7 @@ import {
   Library,
   GraduationCap,
 } from "lucide-react";
-import { chapters, lessons } from "../data/lessons";
+import { chapters, lessons, examLessons } from "../data/lessons";
 import { useStudy } from "../lib/store";
 import { Progress } from "./ui";
 export function Layout({ children }: { children: ReactNode }) {
@@ -70,7 +70,11 @@ export function Layout({ children }: { children: ReactNode }) {
         )
         .slice(0, 7)
     : [];
-  const progress = Math.round((state.completed.length / lessons.length) * 100);
+  const progress = Math.round(
+    (examLessons.filter((l) => state.completed.includes(l.id)).length /
+      examLessons.length) *
+      100,
+  );
   return (
     <div className="app-shell">
       <a
@@ -163,7 +167,8 @@ export function Layout({ children }: { children: ReactNode }) {
             </div>
             <Progress value={progress} label="전체 학습 진도" />
             <small>
-              {state.completed.length} / {lessons.length}개 개념 학습 완료
+              {examLessons.filter((l) => state.completed.includes(l.id)).length}{" "}
+              / {examLessons.length}개 개념 학습 완료
             </small>
           </div>
           <NavLink to="/sources">

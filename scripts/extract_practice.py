@@ -41,3 +41,5 @@ for number in [1, 2, 3]:
     out.append({'number':number,'filename':filename,'objective':qs,'written':cs})
 Path('content/extracted-practice.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
 print('Extracted:', [(s['number'],len(s['objective']),len(s['written'])) for s in out])
+import subprocess
+subprocess.run(['python3', 'scripts/extract_additional_practice.py'], check=True)

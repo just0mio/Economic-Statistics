@@ -87,7 +87,8 @@ function validAttempt(a: unknown): a is Attempt {
     return (
       r.selfScore === undefined ||
       (a.submittedAt !== null &&
-        questionById[id].type === "written" &&
+        (questionById[id].type === "written" ||
+          questionById[id].autoGrade === false) &&
         typeof r.selfScore === "number" &&
         Number.isFinite(r.selfScore) &&
         r.selfScore >= 0 &&

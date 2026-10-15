@@ -21,8 +21,8 @@ test("대시보드·메뉴·검색·자료 출처", async ({ page }, info) => {
   await page.keyboard.press("Tab");
   await page.keyboard.press("Enter");
   await expect(page.locator("main")).toBeFocused();
-  await page.locator('main').blur();
-  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.locator("main").blur();
+  await page.evaluate(() => window.scrollTo(0, 0));
   await expect(
     page.getByRole("heading", { name: /오늘도, 이해가 쌓이는 시간/ }),
   ).toBeVisible();
@@ -56,7 +56,10 @@ test("대시보드·메뉴·검색·자료 출처", async ({ page }, info) => {
       .or(page.getByText("LESE152_Practice_Set_5.pdf", { exact: true }))
       .first(),
   ).toBeVisible();
-  await expect(page.locator(".missing-tag")).toHaveCount(2);
+  await expect(page.locator(".missing-tag")).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", { name: "Lecture 6 · 시험범위본", exact: true }),
+  ).toBeVisible();
   await noOverflow(page);
   expect(errors).toEqual([]);
 });
@@ -112,6 +115,9 @@ test("분포 모수·확률 계산·확대 그래프", async ({ page }, info) =>
   await expect(page.getByRole("dialog")).toHaveCount(0);
   await page.getByLabel("분포 선택", { exact: true }).selectOption("normal");
   await expect(page.locator(".quantile-calculator")).toContainText("1.64485");
+  await page
+    .getByRole("checkbox", { name: "범위 밖 지수분포 포함", exact: true })
+    .check();
   for (const distribution of ["uniform", "exponential"]) {
     await page
       .getByLabel("분포 선택", { exact: true })

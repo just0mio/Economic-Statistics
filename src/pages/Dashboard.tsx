@@ -12,14 +12,18 @@ import {
   ChevronRight,
   FlaskConical,
 } from "lucide-react";
-import { chapters, lessons, lessonById } from "../data/lessons";
+import { chapters, examLessons as lessons, lessonById } from "../data/lessons";
 import { questionById } from "../data/questions";
 import { summarize } from "../lib/grading";
 import { useStudy } from "../lib/store";
 import { ChapterIcon, Progress } from "../components/ui";
 export function Dashboard() {
   const { state } = useStudy();
-  const progress = Math.round((state.completed.length / lessons.length) * 100);
+  const progress = Math.round(
+    (lessons.filter((l) => state.completed.includes(l.id)).length /
+      lessons.length) *
+      100,
+  );
   const last = state.lastLesson
     ? lessonById[state.lastLesson]
     : lessonById.statistics;
@@ -161,7 +165,8 @@ export function Dashboard() {
             <em>%</em>
           </strong>
           <span>
-            {state.completed.length} / {lessons.length}개 개념 완료
+            {lessons.filter((l) => state.completed.includes(l.id)).length} /{" "}
+            {lessons.length}개 개념 완료
           </span>
           <Progress value={progress} label="전체 학습 진행률" />
         </div>
@@ -344,8 +349,9 @@ export function Dashboard() {
         </Link>
       </section>
       <p className="dashboard-disclosure">
-        강의 269쪽과 Practice Set 1–3을 반영했습니다. 원문 예제와 보충 설명을
-        구분하며, 계산 오류의 검산 근거는 감사 문서에서 확인할 수 있습니다.{" "}
+        Lecture 1–5와 Lecture 6 정규분포까지, 원본 Practice Set 1–5를
+        반영했습니다. 원문 예제와 보충 설명을 구분하며, 계산 오류의 검산 근거는
+        감사 문서에서 확인할 수 있습니다.{" "}
         <Link to="/sources">자료 현황 보기 ↗</Link>
       </p>
     </div>

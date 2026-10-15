@@ -7,11 +7,13 @@ try {
  for(const [name,width,height] of [['desktop',1440,1000],['tablet',768,1024],['mobile',390,844]]){
   const context=await browser.newContext({viewport:{width,height}});const page=await context.newPage();
   const ready=async()=>{await page.locator('main h1').waitFor();await page.evaluate(()=>document.fonts.ready);};
-  await page.goto(address);await ready();await page.screenshot({path:`public/artifacts/dashboard-${name}.png`,fullPage:true});
-  await page.goto(`${address}/#/lab`);await ready();await page.getByLabel('분포 선택',{exact:true}).selectOption('poisson');await page.getByTestId('lab-mean').waitFor();await page.screenshot({path:`public/artifacts/distribution-${name}.png`,fullPage:true});
-  await page.goto(`${address}/#/practice?mode=exam`);await ready();await page.getByRole('button',{name:'모의시험 시작',exact:true}).first().click();await page.getByRole('button',{name:'문제 21',exact:true}).click();await page.locator('.subquestions textarea').first().fill('평균 19, 중앙값 17. 큰 관측값 40이 평균을 높인다.');await page.locator('.subquestions textarea').first().blur();await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:`public/artifacts/exam-${name}.png`,fullPage:true});
-  if(name==='desktop'){await page.goto(`${address}/#/learn/bernoulli`);await ready();await page.locator('.katex').first().waitFor();await page.screenshot({path:'public/artifacts/concept-desktop.png',fullPage:true});}
+  const capture=async(options)=>{await page.evaluate(()=>{if(document.activeElement instanceof HTMLElement)document.activeElement.blur();window.scrollTo(0,0)});await page.screenshot(options);};
+  await page.goto(address);await ready();await capture({path:`public/artifacts/dashboard-${name}.png`,fullPage:true});
+  await page.goto(`${address}/#/lab`);await ready();await page.getByLabel('분포 선택',{exact:true}).selectOption('poisson');await page.getByTestId('lab-mean').waitFor();await capture({path:`public/artifacts/distribution-${name}.png`,fullPage:true});
+  await page.goto(`${address}/#/learn/normal-stock`);await ready();await page.getByTestId('stock-integer').waitFor();await capture({path:`public/artifacts/lecture6-${name}.png`,fullPage:true});
+  await page.goto(`${address}/#/practice?mode=exam`);await ready();await page.getByRole('button',{name:'모의시험 시작',exact:true}).first().click();await page.getByRole('button',{name:'문제 21',exact:true}).click();await page.locator('.subquestions textarea').first().fill('평균 19, 중앙값 17. 큰 관측값 40이 평균을 높인다.');await page.locator('.subquestions textarea').first().blur();await page.evaluate(()=>window.scrollTo(0,0));await capture({path:`public/artifacts/exam-${name}.png`,fullPage:true});
+  if(name==='desktop'){await page.goto(`${address}/#/learn/bernoulli`);await ready();await page.locator('.katex').first().waitFor();await capture({path:'public/artifacts/concept-desktop.png',fullPage:true});}
   await context.close();
  }
- console.log('Captured 10 screenshots: dashboard, distribution, exam at 3 sizes; concept desktop.');
+ console.log('Captured 13 screenshots: dashboard, distribution, exam, Lecture6 at 3 sizes; concept desktop.');
 } finally {await browser.close();}

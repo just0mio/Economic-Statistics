@@ -27,6 +27,7 @@ export interface Lesson {
   originalExamples?: {
     title: string;
     page: number;
+    file?: string;
     text: string;
     note?: string;
   }[];
@@ -43,6 +44,8 @@ export interface Chapter {
   icon: string;
 }
 export interface Question {
+  sourceIssue?: string;
+  autoGrade?: boolean;
   context?: { question: string; english: string };
   questionId: string;
   setId: string;

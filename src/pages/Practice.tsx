@@ -24,13 +24,14 @@ import type { Difficulty, Question } from "../data/types";
 import { useStudy } from "../lib/store";
 import { createAttempt } from "../lib/attempts";
 import { SourceNote, Empty, Modal } from "../components/ui";
+import { isExamQuestion, examScopeLabel, isExamTopic } from "../data/scope";
 const modes = [
   {
     id: "practice",
     title: "세트별 연습",
     en: "Practice Sets",
     icon: BookOpen,
-    description: "원본 3개와 창작 보충 5개 세트",
+    description: "원본 5개와 창작 보충 5개 세트",
   },
   {
     id: "chapter",
@@ -78,6 +79,7 @@ export function Practice() {
   const [discard, setDiscard] = useState(false);
   const [family, setFamily] = useState<"original" | "supplement">("original");
   const [batch, setBatch] = useState(0);
+  const [includeExtras, setIncludeExtras] = useState(false);
   const { state, update } = useStudy();
   const navigate = useNavigate();
   const pool =
@@ -97,16 +99,22 @@ export function Practice() {
     .filter(
       (q, i, arr) => arr.findIndex((v) => v.questionId === q.questionId) === i,
     )
+    .filter((q) => includeExtras || isExamQuestion(q))
     .filter((q) => difficulty === "all" || q.difficulty === difficulty);
-  useEffect(() => setBatch(0), [mode, difficulty, chapter]);
+  useEffect(() => setBatch(0), [mode, difficulty, chapter, includeExtras]);
   const maxBatch = Math.max(0, Math.ceil(candidates.length / 15) - 1);
   const currentBatch = Math.min(batch, maxBatch);
   const selected = candidates.slice(currentBatch * 15, (currentBatch + 1) * 15);
-  function start(qs: Question[], setId: string, minutes = 60) {
+  function start(
+    qs: Question[],
+    setId: string,
+    minutes = 60,
+    attemptMode = mode,
+  ) {
     if (state.activeAttempt) return;
     update((s) => ({
       ...s,
-      activeAttempt: createAttempt(qs, mode, setId, minutes),
+      activeAttempt: createAttempt(qs, attemptMode, setId, minutes),
     }));
     navigate("/session");
   }
@@ -118,9 +126,14 @@ export function Practice() {
           <h1>문제 풀기</h1>
           <p>지금 필요한 방식으로 연습하고, 한 단계 더 확실하게 이해하세요.</p>
         </div>
-        <span className="pill">원본 3개 · 보충 5개 · 각 100점</span>
+        <span className="pill">원본 5개 · 보충 5개 · 각 100점</span>
       </div>
       <SourceNote />
+      <p className="scope-banner">
+        시험범위: {examScopeLabel}. 챕터·공식·오답 연습은 지수분포와 원문 오류
+        보류 문항을 기본 제외합니다. 원본 전체 세트는 배점·정답을 보존하며 범위
+        밖 문항을 포함합니다.
+      </p>
       <div className="mode-grid">
         {modes.map((m) => (
           <button
@@ -184,7 +197,7 @@ export function Practice() {
               className={family === "original" ? "filter active" : "filter"}
               onClick={() => setFamily("original")}
             >
-              원본 Practice Set 1–3
+              원본 Practice Set 1–5
             </button>
             <button
               className={family === "supplement" ? "filter active" : "filter"}
@@ -231,6 +244,35 @@ export function Practice() {
                     </span>
                     <span>100점</span>
                   </div>
+                  <p className="set-scope-note">
+                    범위 밖{" "}
+                    {
+                      flattenQuestions(s.questions).filter(
+                        (q) => !isExamTopic(q.topicId),
+                      ).length
+                    }
+                    문항 · 원문 오류 보류{" "}
+                    {
+                      flattenQuestions(s.questions).filter(
+                        (q) => q.autoGrade === false,
+                      ).length
+                    }
+                    문항
+                  </p>
+                  <button
+                    className="button primary full"
+                    disabled={Boolean(state.activeAttempt)}
+                    onClick={() =>
+                      start(
+                        flattenQuestions(s.questions).filter(isExamQuestion),
+                        s.id,
+                        s.minutes,
+                        "practice",
+                      )
+                    }
+                  >
+                    시험범위 연습
+                  </button>
                   <button
                     className={`button ${i === 0 ? "primary" : "secondary"} full`}
                     disabled={Boolean(state.activeAttempt)}
@@ -241,25 +283,23 @@ export function Practice() {
                   </button>
                   <small>
                     {s.original
-                      ? "제공된 원문 · 문항·정답·배점 보존"
+                      ? "위 연습/모의시험 시작은 원본 전체 100점 · 범위 밖 포함"
                       : "창작 보충 문제 · 원본 세트와 별도"}
                   </small>
                 </article>
               ))}
           </div>
-          {family === "original" && (
-            <div className="missing-sets">
-              <span>Practice Set 4 · 자료 미제공</span>
-              <span>Practice Set 5 · 자료 미제공</span>
-              <p>
-                원문 파일이 없어 문항과 답안을 수록하지 않았습니다. 창작 보충
-                연습 4–5와 구분합니다.
-              </p>
-            </div>
-          )}
         </>
       ) : (
         <section className="custom-practice">
+          <label className="scope-toggle">
+            <input
+              type="checkbox"
+              checked={includeExtras}
+              onChange={(e) => setIncludeExtras(e.target.checked)}
+            />
+            시험 범위 밖 보충·원문 오류 보류 포함
+          </label>
           {mode === "chapter" && (
             <div className="filter-row">
               {chapters.map((c) => (

@@ -138,12 +138,13 @@ export function Results() {
           </strong>
           <p>
             {result.pending > 0
-              ? `설명형 ${result.pending}점은 아직 미채점입니다.`
+              ? `설명형·보류 문항 ${result.pending}점은 아직 미채점입니다.`
               : `자가평가 ${result.selfEarned}점 포함 합계 ${result.earned}/${result.total}`}
           </p>
           <span className="tiny-tag">
             {result.pending > 0 ? "총점 미확정" : "자가평가 포함 점수"}
           </span>
+          <p>이 풀이의 전체 배점: {result.total}점</p>
         </div>
         <div className="result-detail">
           <div>
@@ -334,7 +335,11 @@ export function Results() {
                     </p>
                   </div>
                   <div>
-                    <small>정답 · 모범답안</small>
+                    <small>
+                      {q.autoGrade === false
+                        ? "원본 정답표 · 오류 검토 필요"
+                        : "정답 · 모범답안"}
+                    </small>
                     {q.setId === "formula" ? (
                       <>
                         <MathBlock formula={lessonById[q.topicId].formula} />
@@ -352,8 +357,9 @@ export function Results() {
                       {a.answers[q.questionId]?.reason || "설명 미작성"}
                     </p>
                     <small className="muted">
-                      진위 자동점수는 학습용입니다. 위 설명의 타당성은 원문
-                      해설과 비교하세요.
+                      {q.autoGrade === false
+                        ? "이 문항은 원문 오류로 자동채점하지 않습니다. 앱 검산·원문을 함께 검토하세요."
+                        : "진위 자동점수는 학습용입니다. 위 설명의 타당성은 원문 해설과 비교하세요."}
                     </small>
                   </div>
                 )}
@@ -364,7 +370,11 @@ export function Results() {
                 )}
                 {q.rubric && (
                   <div className="rubric">
-                    <h4>부분점수 기준</h4>
+                    <h4>
+                      {q.autoGrade === false
+                        ? "원문 오류 검토 · 자가평가 참고"
+                        : "부분점수 기준"}
+                    </h4>
                     <ul>
                       {q.rubric.map((r) => (
                         <li key={r}>{r}</li>

@@ -142,19 +142,67 @@ export function normalQuantile(p: number, mu = 0, sigma = 1): number {
   positive(sigma);
   if (p === 0) return -Infinity;
   if (p === 1) return Infinity;
-  let low = -40,
-    high = 40;
-  for (let i = 0; i < 90; i++) {
-    const mid = (low + high) / 2;
-    if (normalCDF(mid) < p) low = mid;
-    else high = mid;
+  // Acklam's inverse-normal rational approximation. Inverting the lower
+  // precision CDF by bisection amplifies its error in tail quantiles.
+  const a = [
+    -39.69683028665376, 220.9460984245205, -275.9285104469687, 138.357751867269,
+    -30.66479806614716, 2.506628277459239,
+  ];
+  const b = [
+    -54.47609879822406, 161.5858368580409, -155.6989798598866,
+    66.80131188771972, -13.28068155288572,
+  ];
+  const c = [
+    -0.007784894002430293, -0.3223964580411365, -2.400758277161838,
+    -2.549732539343734, 4.374664141464968, 2.938163982698783,
+  ];
+  const d = [
+    0.007784695709041462, 0.3224671290700398, 2.445134137142996,
+    3.754408661907416,
+  ];
+  let z: number;
+  if (p < 0.02425 || p > 1 - 0.02425) {
+    const q = Math.sqrt(-2 * (p < 0.02425 ? Math.log(p) : Math.log1p(-p)));
+    z =
+      (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) /
+      ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1);
+    if (p > 0.5) z = -z;
+  } else {
+    const q = p - 0.5,
+      r = q * q;
+    z =
+      ((((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) *
+        q) /
+      (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1);
   }
-  return mu + (sigma * (low + high)) / 2;
+  return mu + sigma * z;
 }
 export function uniformCDF(x: number, a: number, b: number): number {
   if (!Number.isFinite(a) || !Number.isFinite(b) || b <= a)
     throw new RangeError("b > a인 유한 구간이 필요합니다.");
   return Math.max(0, Math.min(1, (x - a) / (b - a)));
+}
+export function normalSafetyStock(mu: number, sigma: number, shortage: number) {
+  if (
+    !Number.isFinite(mu) ||
+    mu < 0 ||
+    !Number.isFinite(sigma) ||
+    sigma <= 0 ||
+    !Number.isFinite(shortage) ||
+    shortage <= 0 ||
+    shortage >= 1
+  )
+    throw new RangeError(
+      "평균≥0, 표준편차>0, 0<부족확률<1인 유한 입력이 필요합니다.",
+    );
+  const continuous = normalQuantile(1 - shortage, mu, sigma);
+  let integer = Math.max(0, Math.ceil(continuous));
+  if (!Number.isSafeInteger(integer))
+    throw new RangeError("정수 재고의 계산 범위를 초과했습니다.");
+  if (integer > 0 && normalCDF(integer - 1, mu, sigma) >= 1 - shortage)
+    integer--;
+  if (normalCDF(integer, mu, sigma) < 1 - shortage) integer++;
+  return { continuous, integer, shortage: 1 - normalCDF(integer, mu, sigma) };
 }
 export function exponentialCDF(x: number, rate: number): number {
   positive(rate);

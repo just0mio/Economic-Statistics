@@ -11,7 +11,8 @@ import {
   Code2,
   BookOpen,
 } from "lucide-react";
-import { chapters, lessons, lessonById } from "../data/lessons";
+import { chapters, lessons, examLessons, lessonById } from "../data/lessons";
+import { isExamTopic } from "../data/scope";
 import { useStudy } from "../lib/store";
 import {
   ChapterIcon,
@@ -23,10 +24,13 @@ import {
   OriginalExamples,
 } from "../components/ui";
 import { DistributionLab } from "../components/DistributionLab";
+import { NormalDecisionCalculator } from "../components/NormalDecisionCalculator";
 export function Chapters() {
   const [params, setParams] = useSearchParams();
   const selected = Number(params.get("chapter")) || 0;
   const { state } = useStudy();
+  const [includeExtras, setIncludeExtras] = useState(false);
+  const visibleLessons = includeExtras ? lessons : examLessons;
   return (
     <div className="page">
       <div className="page-heading">
@@ -35,9 +39,20 @@ export function Chapters() {
           <h1>개념 학습</h1>
           <p>왜 이 공식을 쓰는지 이해하는 순간, 문제 풀이가 달라집니다.</p>
         </div>
-        <span className="pill">{lessons.length}개 개념</span>
+        <span className="pill">
+          시험범위 {examLessons.length}개 · 별도 보충{" "}
+          {lessons.length - examLessons.length}개
+        </span>
       </div>
       <SourceNote />
+      <label className="scope-toggle">
+        <input
+          type="checkbox"
+          checked={includeExtras}
+          onChange={(e) => setIncludeExtras(e.target.checked)}
+        />
+        시험 범위 밖 보충 포함
+      </label>
       <div className="filter-row">
         <button
           className={!selected ? "filter active" : "filter"}
@@ -58,7 +73,7 @@ export function Chapters() {
       {chapters
         .filter((c) => !selected || selected === c.id)
         .map((c) => {
-          const ls = lessons.filter((l) => l.chapterId === c.id),
+          const ls = visibleLessons.filter((l) => l.chapterId === c.id),
             done = ls.filter((l) => state.completed.includes(l.id)).length;
           return (
             <section className="chapter-section" key={c.id}>
@@ -94,7 +109,10 @@ export function Chapters() {
                       )}
                     </span>
                     <div>
-                      <h3>{l.title}</h3>
+                      <h3>
+                        {l.title}
+                        {!isExamTopic(l.id) && " · 범위 밖 보충"}
+                      </h3>
                       <p>{l.english}</p>
                     </div>
                     {l.distribution && <span className="tag">인터랙티브</span>}
@@ -127,7 +145,8 @@ function LessonContent({ id }: { id: string }) {
   const [choice, setChoice] = useState<number | null>(null),
     [checked, setChecked] = useState(false);
   const index = lessons.findIndex((x) => x.id === id),
-    next = lessons[index + 1];
+    coreIndex = examLessons.findIndex((x) => x.id === id),
+    next = coreIndex < 0 ? undefined : examLessons[coreIndex + 1];
   const completed = state.completed.includes(id);
   useEffect(() => {
     update((s) => (s.lastLesson === id ? s : { ...s, lastLesson: id }));
@@ -173,7 +192,14 @@ function LessonContent({ id }: { id: string }) {
         </button>
       </div>
       <SourceNote />
+      {!isExamTopic(l.id) && (
+        <p className="audit-note">
+          이번 시험범위 밖 보충입니다. Lecture 6의 정규분포까지라는 범위에
+          지수분포·무기억성은 포함하지 않습니다.
+        </p>
+      )}
       <LessonSources lesson={l} />
+      {l.id === "normal-stock" && <NormalDecisionCalculator />}
       <div className="lesson-layout">
         <article className="lesson-article">
           <div className="concept-summary">

@@ -1,0 +1,381 @@
+ STATISTICS FOR ECONOMISTS · LESE152
+
+
+ Practice Set 4 — Applied
+ Name: _____________________________ Student ID: _____________________________
+
+ Part A: 10 × 2 points · Part B: 10 × 3 points · Part C: 10 × 5 points · Total: 100 points
+
+ Useful: Φ(1)=0.8413, Φ(1.5)=0.9332, Φ(2)=0.9772, z0.90=1.2816, z0.95=1.645, e^(-2)=0.1353, e^(-1.2)=0.3010.
+ Quartile position Lp=(p/100)(n+1).
+
+
+ Part A · Multiple Choice (20 points)
+
+ MC1. Among 200 farms, 60 received a subsidy. If subsidy status is coded 1/0, what is its sample mean?
+
+     (a) 0.20
+     (b) 0.30
+     (c) 0.60
+     (d) 1.00
+
+ MC2. The first and third quartiles are Q1=14 and Q3=22. What is the upper 1.5×IQR fence?
+
+     (a) 26
+     (b) 30
+     (c) 34
+     (d) 38
+
+ MC3. Independent events A and B have P(A)=0.40 and P(B)=0.25. Find P(A ∪ B).
+
+     (a) 0.10
+     (b) 0.55
+     (c) 0.65
+     (d) 0.75
+
+ MC4. P(disease)=0.20, P(+ | disease)=0.90, P(+ | healthy)=0.10. Find P(disease | +).
+
+     (a) 0.1800
+     (b) 0.6000
+     (c) 0.6923
+     (d) 0.9000
+
+ MC5. X ~ Bernoulli(0.30). What is Var(X)?
+
+     (a) 0.09
+     (b) 0.21
+     (c) 0.30
+     (d) 0.70
+
+ MC6. X ~ Binomial(5,0.4). Find P(X=2).
+
+     (a) 0.2304
+     (b) 0.2592
+     (c) 0.3456
+     (d) 0.4000
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                                              1
+ MC7. Hourly truck arrivals follow Poisson(2). Approximate P(no trucks in one hour).
+
+     (a) 0.1353
+     (b) 0.2707
+     (c) 0.3679
+     (d) 0.8647
+
+ MC8. Delivery time T ~ Uniform(10,30). Find P(T > 25).
+
+     (a) 0.10
+     (b) 0.25
+     (c) 0.50
+     (d) 0.75
+
+ MC9. T ~ Normal(50,5²). Find P(T < 55), given Φ(1)=0.8413.
+
+     (a) 0.1587
+     (b) 0.5000
+     (c) 0.8413
+     (d) 0.9772
+
+ MC10. X has sd(X)=6, and Y=3X 4. Find sd(Y).
+
+     (a) 6
+     (b) 14
+     (c) 18
+     (d) 36
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                      2
+ Part B · True / False (30 points)
+
+ TF1. The mean of a binary 0/1 variable equals the proportion coded 1.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF2. For a valid PMF, the probabilities can sum to more than one if there are many outcomes.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF3. The variance of Bernoulli(p) is largest at p=0.5.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF4. A binomial model is valid even if success probabilities differ from trial to trial.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF5. If events A and B are independent, P(A∩B)=P(A)P(B).
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF6. If X ~ Poisson(λ), then E(X)=λ but Var(X)=λ².
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF7. Adding a constant to a random variable changes its expected value but not its variance.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF8. P(A | B) and P(B | A) always have equal values.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF9. For a continuous random variable, the probability of one exact point is zero.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+ TF10. A positive correlation between two variables proves that one causes the other.
+
+     □ True □ False
+     Explanation: _______________________________________________________________
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                               3
+ Part C · Short Answers (50 points)
+
+ C1. Daily visitors to a produce market (sorted): 12, 14, 15, 17, 19, 21, 23, 39.
+
+ (a) [5 pt] Compute the sample mean and median. What does their comparison suggest?
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (b) [5 pt] Find Q1 and Q3 using Lp=(p/100)(n+1) with linear interpolation. Apply the upper 1.5×IQR fence.
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (c) [5 pt] Calculate sample variance, sample sd, and coefficient of variation.
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ C2. Three processing lines supply 50%, 30%, and 20% of goods. Their defect rates are 2%, 5%, and 10%,
+ respectively.
+
+ (a) [5 pt] Find the unconditional probability that an item is defective.
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (b) [5 pt] Given that a randomly sampled item is defective, find P(Line 3 | defective).
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (c) [5 pt] Given that an item is not defective, find P(Line 1 | not defective).
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                                            4
+ C3. A farmer receives X orders per day. The PMF is x=0,1,2,3 with probabilities 0.1,0.2,0.5,0.2.
+
+ (a) [5 pt] Find E(X), E(X²), Var(X), and sd(X).
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (b) [5 pt] Profit is Y=25X 8 (thousand won). Find E(Y) and sd(Y).
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (c) [5 pt] Four customers independently pay late with probability .20 each. Find P(at least one late payment).
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+ (d) [5 pt] Waiting time T follows an exponential distribution with rate .1 per minute. Find P(T>20) and P(T>30 | T>10).
+
+     Work: ___________________________________________________________________________
+     ________________________________________________________________________________
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                                                          5
+ ANSWER KEY & STEP-BY-STEP SOLUTIONS
+ Part A · Multiple Choice
+
+ MC1 · B
+
+ 더미변수의 평균은 1인 비율: 60/200=0.30.
+
+ MC2 · C
+
+ IQR=22 14=8. 상한=22+1.5×8=34.
+
+ MC3 · B
+
+ 독립이므로 P(A∩B)=0.4×0.25=0.10. 합집합=.4+.25 .10=.55.
+
+ MC4 · C
+
+ 베이즈: .20×.90/[.20×.90+.80×.10]=.18/.26≈.6923.
+
+ MC5 · B
+
+ Var(X)=p(1 p)=.3×.7=.21.
+
+ MC6 · C
+
+ C(5,2)×.4²×.6³=10×.16×.216=.3456.
+
+ MC7 · A
+
+ P(X=0)=e^( 2)=.1353.
+
+ MC8 · B
+
+ (30 25)/(30 10)=5/20=.25.
+
+ MC9 · C
+
+ z=(55 50)/5=1 → Φ(1)=.8413.
+
+ MC10 · C
+
+ sd(3X 4)=|3|sd(X)=18.
+
+
+ Part B · True / False
+
+ TF1 · TRUE
+
+ 합계 ΣX 는 1의 개수이므로 평균 ΣX /n은 1의 비율.
+
+ TF2 · FALSE
+
+ PMF의 가능한 모든 값에 대한 확률합은 반드시 정확히 1.
+
+ TF3 · TRUE
+
+ p(1 p)=0.25 (p 0.5)²이므로 최대는 0.25.
+
+ TF4 · FALSE
+
+ 독립 시행들의 성공확률 p가 모두 같아야 통상적 Binomial(n,p) 모델.
+
+
+
+LESE152 • Statistics for Economists | Original practice materials   6
+ TF5 · TRUE
+
+ 독립성의 곱셈법칙.
+
+ TF6 · FALSE
+
+ 포아송은 기댓값과 분산 모두 λ.
+
+ TF7 · TRUE
+
+ E(X+c)=E(X)+c, Var(X+c)=Var(X).
+
+ TF8 · FALSE
+
+ 조건부확률의 분모가 서로 다르며 베이즈 정리로 연결.
+
+ TF9 · TRUE
+
+ 연속형 확률은 구간에 대한 밀도 적분으로 계산.
+
+ TF10 · FALSE
+
+ 교란변수·역인과성 때문에 상관만으로 인과관계를 결론 내릴 수 없다.
+
+
+ Part C · Worked Solutions
+
+ C1 · Daily visitors to a produce market (sorted): 12, 14, 15, 17, 19, 21, 23, 39.
+
+ (a) Compute the sample mean and median. What does their comparison suggest?
+
+ 합계=160, n=8 → 평균=20. 중앙값=(17+19)/2=18. 큰 값 39가 평균을 끌어올려 우측 치우침을 시사.
+
+ (b) Find Q1 and Q3 using Lp=(p/100)(n+1) with linear interpolation. Apply the upper 1.5×IQR fence.
+
+ L25=2.25 → Q1=14+0.25(15 14)=14.25. L75=6.75 → Q3=21+0.75(23 21)=22.5. IQR=8.25. 상한
+ =22.5+1.5(8.25)=34.875; 39는 잠재적 이상치.
+
+ (c) Calculate sample variance, sample sd, and coefficient of variation.
+
+ 평균 20. 제곱편차합=64+36+25+9+1+1+9+361=506. s²=506/7≈72.2857, s≈8.5021, CV≈8.5021/20×100≈42.51%.
+
+ C2 · Three processing lines supply 50%, 30%, and 20% of goods. Their defect rates are 2%, 5%, and 10%,
+ respectively.
+
+ (a) Find the unconditional probability that an item is defective.
+
+ P(D)=.50(.02)+.30(.05)+.20(.10)=.01+.015+.02=.045 (4.5%).
+
+ (b) Given that a randomly sampled item is defective, find P(Line 3 | defective).
+
+ Bayes: P(L3|D)=P(D|L3)P(L3)/P(D)=.10×.20/.045=.02/.045=4/9≈.4444.
+
+ (c) Given that an item is not defective, find P(Line 1 | not defective).
+
+ P(L1|D )=.50(.98)/P(D )=.49/.955≈.5131.
+
+ C3 · A farmer receives X orders per day. The PMF is x=0,1,2,3 with probabilities 0.1,0.2,0.5,0.2.
+
+ (a) Find E(X), E(X²), Var(X), and sd(X).
+
+ E(X)=0+.2+1+.6=1.8. E(X²)=.2+4(.5)+9(.2)=4.0. Var(X)=4 1.8²=.76. sd≈.8718.
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                                         7
+ (b) Profit is Y=25X 8 (thousand won). Find E(Y) and sd(Y).
+
+ E(Y)=25(1.8) 8=37 (천 원). sd(Y)=25√.76≈21.79 (천 원).
+
+ (c) Four customers independently pay late with probability .20 each. Find P(at least one late payment).
+
+ K~Binomial(4,.2). P(K≥1)=1 P(K=0)=1 .8⁴=1 .4096=.5904.
+
+ (d) Waiting time T follows an exponential distribution with rate .1 per minute. Find P(T>20) and P(T>30 | T>10).
+
+ P(T>20)=e^( .1×20)=e^( 2)≈.1353. 무기억성: P(T>30|T>10)=P(T>20)=e^( 2)≈.1353.
+
+
+
+
+LESE152 • Statistics for Economists | Original practice materials                                                   8
+

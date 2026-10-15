@@ -132,6 +132,86 @@
       "quantile": 49.869121761708826,
       "pdfTableProbability": 0.0668,
       "pdfTableQuantile": 49.87
+    },
+    "original-4-C1-a": {
+      "mean": 20,
+      "median": 18.0
+    },
+    "original-4-C1-b": {
+      "Q1": 14.25,
+      "Q3": 22.5,
+      "IQR": 8.25,
+      "upper": 34.875
+    },
+    "original-4-C1-c": {
+      "variance": 72.28571428571429,
+      "sd": 8.502100580780862,
+      "CV": 42.51050290390431
+    },
+    "original-4-C2-a": {
+      "probability": 0.045000000000000005
+    },
+    "original-4-C2-b": {
+      "probability": 0.44444444444444453
+    },
+    "original-4-C2-c": {
+      "probability": 0.5130890052356021
+    },
+    "original-4-C3-a": {
+      "mean": 1.8,
+      "secondMoment": 4.0,
+      "variance": 0.7599999999999998,
+      "sd": 0.8717797887081346
+    },
+    "original-4-C3-b": {
+      "mean": 37.0,
+      "sd": 21.794494717703365
+    },
+    "original-4-C3-c": {
+      "probability": 0.5903999999999999
+    },
+    "original-4-C3-d": {
+      "tail": 0.1353352832366127,
+      "conditionalTail": 0.1353352832366127
+    },
+    "original-5-C1-a": {
+      "probability": 0.2301277704660001
+    },
+    "original-5-C1-b": {
+      "probability": 0.7175704635189999
+    },
+    "original-5-C1-c": {
+      "mean": 1.2,
+      "variance": 1.08,
+      "sd": 1.0392304845413265
+    },
+    "original-5-C2-a": {
+      "probability": 0.10400000000000001
+    },
+    "original-5-C2-b": {
+      "probability": 0.3538461538461538
+    },
+    "original-5-C2-c": {
+      "probability": 0.8780082987551867
+    },
+    "original-5-C3-a": {
+      "mean": 34.0,
+      "secondMoment": 2500.0,
+      "variance": 1344.0,
+      "sd": 36.66060555964672
+    },
+    "original-5-C3-b": {
+      "mean": 61.0,
+      "variance": 3024.0,
+      "sd": 54.99090833947008
+    },
+    "original-5-C3-c": {
+      "mean": 53.0,
+      "variance": 3060.0,
+      "sd": 55.31726674375732
+    },
+    "original-5-C3-d": {
+      "probability": 0.5
     }
   },
   "PS1": {
@@ -193,5 +273,113 @@
       "variance": 10000.0,
       "sd": 100.0
     }
+  },
+  "lecture6": {
+    "weeklyRevenue": {
+      "below20000": 0.1056497736668553,
+      "above30000": 0.10564977366685535,
+      "between22000and28000": 0.5467452952462635
+    },
+    "uniform": {
+      "mean": 3.5,
+      "variance": 0.75,
+      "sd": 0.8660254037844386,
+      "quantile90": 4.7,
+      "deliveryQuantile90": 108
+    },
+    "normalLinear": {
+      "mean": 1,
+      "variance": 36,
+      "sd": 6,
+      "tailAbove7": 0.15865525393145707
+    },
+    "stock": {
+      "continuous": 623.2249346379093,
+      "minimumInteger": 624,
+      "shortage550": 0.20232838096364303,
+      "shortage623": 0.020182215405704418,
+      "shortage624": 0.019382787088818576
+    },
+    "normalQuantile": {
+      "q90": 119.22327348316901,
+      "z90": 1.2815515655446008,
+      "central90z": 1.6448536269514715
+    },
+    "inverseReferences": {
+      "1e-10": -6.361340902404056,
+      "1e-05": -4.2648907939228256,
+      "0.001": -3.090232306167813,
+      "0.02": -2.0537489106318225,
+      "0.025": -1.9599639845400538,
+      "0.1": -1.2815515655446008,
+      "0.5": 0.0,
+      "0.9": 1.2815515655446008,
+      "0.95": 1.6448536269514715,
+      "0.975": 1.9599639845400536,
+      "0.98": 2.053748910631822,
+      "0.999": 3.090232306167813,
+      "0.99999": 4.26489079392384,
+      "0.9999999999": 6.361340889697421
+    }
+  },
+  "objective45": {
+    "4": {
+      "MC": [
+        0.3,
+        34,
+        0.55,
+        0.6923076923076924,
+        0.21,
+        0.3456,
+        0.1353352832366127,
+        0.25,
+        0.8413447460685429,
+        18
+      ],
+      "TF": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    "5": {
+      "MC": [
+        0.7741935483870968,
+        4,
+        0.9,
+        0.36787944117144233,
+        0.3125,
+        52,
+        0.25,
+        0.5,
+        0.06680720126885809,
+        0.1353352832366127
+      ],
+      "TF": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false
+      ]
+    }
+  },
+  "sourceIssues": {
+    "original-5-MC4": "Original options lose exponent signs; correct probability exp(-1), source key C preserved, auto grading deferred.",
+    "original-5-TF10": "Printed P(X=5)=.2 conflicts with TRUE key; actual .2**5=.00032. Key preserved, auto grading deferred.",
+    "original-5-C3": "Source minus signs missing; verification assumes -30 and subtracts C to match original worked mean 34 and profit 53.",
+    "L6-p18": "623 is rounded; exact 98th percentile about 623.2249, minimum integer meeting 2% shortage is 624."
   }
 }

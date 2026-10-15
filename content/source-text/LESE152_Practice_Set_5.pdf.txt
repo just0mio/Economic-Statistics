@@ -1,0 +1,452 @@
+  LESE152 / STATISTICS FOR ECONOMISTS
+
+
+
+  Practice Set 5
+  종합 응용 · Final Challenge
+
+  Name: ______________________________ Student ID: __________________________
+
+  Total: 100 points | Suggested time: 80–95 minutes | Part A: 20 · Part B: 30 · Part C: 50
+
+  Instructions: Answer the multiple-choice questions, justify true/false responses, and show all key calculations in written answers.
+  Use Φ(1)=0.8413, Φ(1.5)=0.9332, Φ(2)=0.9772, e⁻¹≈0.3679, e⁻²≈0.1353, e⁻³≈0.0498 as needed.
+
+
+
+
+  PART A · MULTIPLE CHOICE (10 × 2 = 20 pts)
+
+  MC1. P(D)=0.30, P(+|D)=0.80, and P(+|D )=0.10. Find P(D|+).
+
+     (a) 0.3000
+     (b) 0.5333
+     (c) 0.7742
+     (d) 0.9000
+
+
+  MC2. X ~ Bernoulli(0.20) and Y=5X 2. Find Var(Y).
+
+     (a) 0.16
+     (b) 0.80
+     (c) 2.00
+     (d) 4.00
+
+
+  MC3. X ~ Binomial(10, 0.10). What is Var(X)?
+
+     (a) 0.09
+     (b) 0.90
+     (c) 1.00
+     (d) 9.00
+
+
+  MC4. Arrivals are Poisson at 2 per hour. Find P(no arrivals in 30 minutes).
+
+     (a) e^( 4)
+     (b) e^( 2)
+     (c) e^( 1)
+     (d) 1 e^( 1)
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL                                                                        1
+  MC5. X ~ Binomial(4, 0.5). Find P(X≥3).
+
+     (a) 1/16
+     (b) 1/4
+     (c) 5/16
+     (d) 1/2
+
+
+  MC6. X and Y are independent with sd(X)=3 and sd(Y)=4. Find Var(2X Y).
+
+     (a) 14
+     (b) 25
+     (c) 52
+     (d) 100
+
+
+  MC7. For an integer-valued X, F(2)=0.65 and F(1)=0.40. Find P(X=2).
+
+     (a) 0.15
+     (b) 0.25
+     (c) 0.40
+     (d) 0.65
+
+
+  MC8. Which Bernoulli probability p yields the largest variance?
+
+     (a) 0.1
+     (b) 0.3
+     (c) 0.5
+     (d) 0.9
+
+
+  MC9. T ~ Normal(50, 8²). Find P(T>62) using Φ(1.5)=0.9332.
+
+     (a) 0.0668
+     (b) 0.1587
+     (c) 0.4332
+     (d) 0.9332
+
+
+  MC10. T ~ Exponential(rate=0.25 per minute). Find P(T>8).
+
+     (a) 0.0183
+     (b) 0.1353
+     (c) 0.2500
+     (d) 0.8647
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL           2
+  PART B · TRUE / FALSE (10 × 3 = 30 pts)
+
+  TF1. Two tests can be conditionally independent given disease status without being independent
+  unconditionally.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF2. If two independent Bernoulli variables have different success probabilities, their sum is always
+  Binomial(2,p) for some p.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF3. A CDF is a nondecreasing function with values between zero and one.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF4. A Bernoulli(0.5) random variable has variance 0.5.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF5. Cov(X,Y)=0 is enough to prove independence in general.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF6. For a continuous Uniform(a,b) variable, P(X=c)=0 for c inside (a,b).
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF7. The coefficient of variation is generally problematic when the mean is zero.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF8. If tests are independent conditional on D, P(+,+|D)=P(+|D)² for identical tests.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF9. For X~Poisson(λ), the standard deviation equals λ.
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+  TF10. For X~Binomial(5,0.2), P(X=5)=0.2 .
+
+  ○ True ○ False Explain: _________________________________________________
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL                                          3
+  PART C · SHORT ANSWERS (50 pts)
+
+  C1. A farm independently checks 12 irrigation controllers. Each has probability 0.10 of failure. Let X be the
+  number of failed controllers.
+
+  (a) [5 pt] Find P(X=2).
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+  (b) [5 pt] Find P(X≥1).
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+  (c) [5 pt] Find E(X), Var(X), and sd(X).
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+
+  C2. Crop disease prevalence is P(D)=0.04. Each diagnostic test has sensitivity P(+|D)=0.92 and false-positive
+  rate P(+|D )=0.07. Two tests are conditionally independent given disease status.
+
+  (a) [5 pt] Find P(+) for the first test.
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+  (b) [5 pt] Find P(D|+) after one positive test.
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+  (c) [5 pt] Find P(D|+,+) after two positive tests.
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+
+  C3. A food-producer’s net operating return X (thousand KRW) has PMF: x= 30,10,50,90 with probabilities
+  0.1,0.4,0.3,0.2. Let Y=1.5X+10. Independent input cost C has E(C)=8 and sd(C)=6; total net profit
+  Z=1.5X C+10.
+
+  (a) [5 pt] Compute E(X), E(X²), Var(X), and sd(X).
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL                                                  4
+  (b) [5 pt] Compute E(Y), Var(Y), and sd(Y).
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+  (c) [5 pt] Compute E(Z), Var(Z), and sd(Z), showing why independence matters.
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+  (d) [5 pt] Find P(X≥50) and interpret it.
+
+  ____________________________________________________________
+
+  ____________________________________________________________
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL                  5
+  ANSWER KEY & DETAILED SOLUTIONS
+  정답과 자신의 풀이를 비교하고, 문제에서 사용한 확률분포의 가정도 점검하세요.
+
+
+  PART A · 정답 및 해설
+
+  MC1 C MC2 D MC3 B MC4 C MC5 C MC6 C MC7 B MC8 C MC9 A MC10 B
+
+  MC1 · C
+
+     P(D|+)=.30×.80/[.30×.80+.70×.10]=.24/.31≈.7742.
+
+
+  MC2 · D
+
+     Var(Y)=5²×p(1 p)=25×.2×.8=4.
+
+
+  MC3 · B
+
+     Var(X)=10×.1×.9=.9.
+
+
+  MC4 · C
+
+     30분 평균 λ=1이므로 P(0)=e^( 1).
+
+
+  MC5 · C
+
+     P(3)+P(4)=[C(4,3)+C(4,4)]/2⁴=5/16.
+
+
+  MC6 · C
+
+     Var(2X Y)=4·9+16=52. 독립이면 공분산은 0이다.
+
+
+  MC7 · B
+
+     P(X=2)=F(2) F(1)=.65 .40=.25.
+
+
+  MC8 · C
+
+     p(1 p)의 최대값은 p=.5일 때이다.
+
+
+  MC9 · A
+
+     Z=(62 50)/8=1.5; P(Z>1.5)=1 .9332=.0668.
+
+
+  MC10 · B
+
+     생존확률=e^( .25×8)=e^( 2)≈.1353.
+
+
+
+  PART B · True / False 해설
+
+  TF1 T TF2 F TF3 T TF4 F TF5 F TF6 T TF7 T TF8 T TF9 F TF10 T
+
+  TF1 · TRUE
+
+     공통 원인인 질병 상태를 혼합하면 검사결과 간 의존이 생길 수 있다.
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL   6
+  TF2 · FALSE
+
+     일반적인 이항분포는 두 시행에서 같은 p를 요구한다. p가 다르면 포아송이항분포가 된다.
+
+
+  TF3 · TRUE
+
+     CDF는 누적확률이므로 x가 증가해도 감소할 수 없다.
+
+
+  TF4 · FALSE
+
+     분산은 .5×.5=.25이다.
+
+
+  TF5 · FALSE
+
+     상관이 0이어도 비선형 의존성이 존재할 수 있다.
+
+
+  TF6 · TRUE
+
+     연속확률변수의 한 점에 대한 확률은 0이다.
+
+
+  TF7 · TRUE
+
+     CV=s/mean이므로 평균 0이면 정의되지 않는다.
+
+
+  TF8 · TRUE
+
+     동일한 조건부 성공확률과 조건부독립성이 함께 성립해야 한다.
+
+
+  TF9 · FALSE
+
+     표준편차는 √λ이고, λ와 같은 것은 분산이다.
+
+
+  TF10 · TRUE
+
+     5번 모두 성공할 확률은 C(5,5)×.2 ×.8 =.2 이다.
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL   7
+  PART C · 단계별 서술형 풀이
+
+  C1 · A farm independently checks 12 irrigation controllers. Each has probability 0.10 of failure. Let X be the
+  number of failed controllers.
+
+  (a) Find P(X=2).
+
+     X~Binomial(12,.1). P(X=2)=C(12,2)×.1²×.9¹ =66×.01×.34867844≈0.23013.
+
+
+  (b) Find P(X≥1).
+
+     P(X≥1)=1 .9¹²≈1 .28242954=.71757.
+
+
+  (c) Find E(X), Var(X), and sd(X).
+
+     E(X)=12(.1)=1.2, Var(X)=12(.1)(.9)=1.08, sd(X)=√1.08≈1.0392.
+
+
+  C2 · Crop disease prevalence is P(D)=0.04. Each diagnostic test has sensitivity P(+|D)=0.92 and false-positive
+  rate P(+|D )=0.07. Two tests are conditionally independent given disease status.
+
+  (a) Find P(+) for the first test.
+
+     전확률: P(+)=.04(.92)+.96(.07)=.0368+.0672=.1040.
+
+
+  (b) Find P(D|+) after one positive test.
+
+     베이즈: P(D|+)=.0368/.104≈.35385.
+
+
+  (c) Find P(D|+,+) after two positive tests.
+
+     조건부 독립성으로 분자는 .04×.92²=.033856, 비감염 경로는 .96×.07²=.004704.
+     후행확률=.033856/(.033856+.004704)=.033856/.03856≈.87801.
+
+
+  C3 · A food-producer’s net operating return X (thousand KRW) has PMF: x= 30,10,50,90 with probabilities
+  0.1,0.4,0.3,0.2. Let Y=1.5X+10. Independent input cost C has E(C)=8 and sd(C)=6; total net profit
+  Z=1.5X C+10.
+
+  (a) Compute E(X), E(X²), Var(X), and sd(X).
+
+     E(X)= 30(.1)+10(.4)+50(.3)+90(.2)= 3+4+15+18=34. E(X²)=900(.1)+100(.4)+2500(.3)+8100(.2)=2500.
+     Var(X)=2500 34²=1344, sd≈36.6606.
+
+
+  (b) Compute E(Y), Var(Y), and sd(Y).
+
+     E(Y)=1.5×34+10=61. Var(Y)=1.5²×1344=3024, sd(Y)=√3024≈54.9909.
+
+
+  (c) Compute E(Z), Var(Z), and sd(Z), showing why independence matters.
+
+     E(Z)=1.5×34 8+10=53. Var(Z)=1.5²×1344+Var(C) 3Cov(X,C)=3024+36=3060 (독립 → Cov=0).
+     sd(Z)=√3060≈55.3173.
+
+
+  (d) Find P(X≥50) and interpret it.
+
+     P(X≥50)=P(X=50)+P(X=90)=.3+.2=.5. 운영수익이 50천원 이상일 확률이 50%다.
+
+  계산 점검: ① 확률의 합=1 ② 조건부 사건 분모 확인 ③ 독립성 확인 ④ E(X²)와 [E(X)]² 구별 ⑤ 선형변환 시 분산 계수 제곱 ⑥ 관측 구간과
+  포아송 λ 일치
+
+
+
+
+LESE152 · STATISTICS FOR ECONOMISTS · ORIGINAL PRACTICE MATERIAL                                                   8
+

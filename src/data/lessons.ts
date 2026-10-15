@@ -4,6 +4,8 @@ import { chapter34 } from "./chapter34";
 import { chapter56 } from "./chapter56";
 import { additionalLessons } from "./additionalLessons";
 import { attachProvenance } from "./provenance";
+import { lecture6Lessons } from "./lecture6";
+import { isExamTopic } from "./scope";
 export const chapters: Chapter[] = [
   {
     id: 1,
@@ -47,10 +49,10 @@ export const chapters: Chapter[] = [
   },
   {
     id: 6,
-    title: "PS1 추가 대비",
-    english: "PS1 Additional Preparation",
+    title: "연속확률변수와 정규분포",
+    english: "Continuous Variables & Normal Distribution",
     description:
-      "제공된 강의에 상세 단원이 없는 정규·연속균등·지수분포를 PS1로 대비해요.",
+      "Lecture 6의 1–18쪽: 밀도·연속균등·정규확률·분위수·안전재고를 배워요.",
     color: "rose",
     icon: "GraduationCap",
   },
@@ -60,9 +62,27 @@ export const lessons = [
   ...chapter34,
   ...chapter56,
   ...additionalLessons,
+  ...lecture6Lessons,
 ]
-  .sort((a, b) => a.chapterId - b.chapterId)
+  .sort((a, b) => {
+    const order = [
+      "continuous-density",
+      "continuous-uniform",
+      "normal",
+      "normal-linear",
+      "normal-cdf",
+      "quantile",
+      "normal-stock",
+      "strategy",
+      "exponential",
+    ];
+    return (
+      a.chapterId - b.chapterId ||
+      (a.chapterId === 6 ? order.indexOf(a.id) - order.indexOf(b.id) : 0)
+    );
+  })
   .map(attachProvenance);
+export const examLessons = lessons.filter((l) => isExamTopic(l.id));
 export const lessonById = Object.fromEntries(lessons.map((l) => [l.id, l]));
 export const difficultyLabels = {
   basic: "기초",

@@ -40,6 +40,43 @@ lecture={
  'handwritten247':moments([50,100,200,400],[.2,.4,.3,.1])}
 assert lecture['correlation']['crossDeviationSum']==-63
 assert lecture['returningPlanes']['givenJoint']<lecture['returningPlanes']['minimumJoint']
-payload={'method':'Python statistics/NormalDist/math; independent of src/lib/math.ts','originalC':refs,'PS1':ps1,'lecture':lecture}
+v=describe([12,14,15,17,19,21,23,39])
+for part,keys in [('a',['mean','median']),('b',['Q1','Q3','IQR','upper']),('c',['variance','sd','CV'])]:
+    refs[f'original-4-C1-{part}']={k:v[k] for k in keys}
+for part,p in [('a',.5*.02+.3*.05+.2*.1),('b',.2*.1/.045),('c',.5*.98/.955)]:
+    refs[f'original-4-C2-{part}']={'probability':p}
+v=moments([0,1,2,3],[.1,.2,.5,.2])
+refs['original-4-C3-a']=v
+refs['original-4-C3-b']={'mean':25*v['mean']-8,'sd':25*v['sd']}
+refs['original-4-C3-c']={'probability':1-.8**4}
+refs['original-4-C3-d']={'tail':math.exp(-2),'conditionalTail':math.exp(-3)/math.exp(-1)}
+refs['original-5-C1-a']={'probability':binom(2,12,.1)}
+refs['original-5-C1-b']={'probability':1-binom(0,12,.1)}
+refs['original-5-C1-c']={'mean':1.2,'variance':1.08,'sd':math.sqrt(1.08)}
+for part,p in [('a',.04*.92+.96*.07),('b',bayes(.04,.92,.07)),('c',bayes(.04,.92**2,.07**2))]:
+    refs[f'original-5-C2-{part}']={'probability':p}
+v=moments([-30,10,50,90],[.1,.4,.3,.2])
+refs['original-5-C3-a']=v
+refs['original-5-C3-b']={'mean':1.5*v['mean']+10,'variance':2.25*v['variance'],'sd':1.5*v['sd']}
+refs['original-5-C3-c']={'mean':1.5*v['mean']-8+10,'variance':2.25*v['variance']+36,'sd':math.sqrt(2.25*v['variance']+36)}
+refs['original-5-C3-d']={'probability':.3+.2}
+normal=statistics.NormalDist()
+stock=500+60*normal.inv_cdf(.98)
+l6={'weeklyRevenue':{'below20000':normal.cdf(-1.25),'above30000':1-normal.cdf(1.25),'between22000and28000':normal.cdf(.75)-normal.cdf(-.75)},
+    'uniform':{'mean':3.5,'variance':.75,'sd':math.sqrt(.75),'quantile90':4.7,'deliveryQuantile90':108},
+    'normalLinear':{'mean':1,'variance':36,'sd':6,'tailAbove7':1-normal.cdf(1)},
+    'stock':{'continuous':stock,'minimumInteger':math.ceil(stock),'shortage550':1-normal.cdf(50/60),'shortage623':1-normal.cdf(123/60),'shortage624':1-normal.cdf(124/60)},
+    'normalQuantile':{'q90':100+15*normal.inv_cdf(.9),'z90':normal.inv_cdf(.9),'central90z':normal.inv_cdf(.95)},
+    'inverseReferences':{str(p):normal.inv_cdf(p) for p in [1e-10,.00001,.001,.02,.025,.1,.5,.9,.95,.975,.98,.999,.99999,1-1e-10]}}
+objective={
+    '4':{'MC':[.3,34,.4+.25-.4*.25,bayes(.2,.9,.1),.3*.7,binom(2,5,.4),math.exp(-2),.25,normal.cdf(1),18], 'TF':[True,False,True,False,True,False,True,False,True,False]},
+    '5':{'MC':[bayes(.3,.8,.1),4,.9,math.exp(-1),binom(3,4,.5)+binom(4,4,.5),52,.25,.5,1-normal.cdf(1.5),math.exp(-2)],'TF':[True,False,True,False,False,True,True,True,False,False]},
+}
+issues={'original-5-MC4':'Original options lose exponent signs; correct probability exp(-1), source key C preserved, auto grading deferred.',
+    'original-5-TF10':'Printed P(X=5)=.2 conflicts with TRUE key; actual .2**5=.00032. Key preserved, auto grading deferred.',
+    'original-5-C3':'Source minus signs missing; verification assumes -30 and subtracts C to match original worked mean 34 and profit 53.',
+    'L6-p18':'623 is rounded; exact 98th percentile about 623.2249, minimum integer meeting 2% shortage is 624.'}
+assert l6['stock']['shortage623']>.02 and l6['stock']['shortage624']<.02
+payload={'method':'Python statistics/NormalDist/math; independent of src/lib/math.ts','originalC':refs,'PS1':ps1,'lecture':lecture,'lecture6':l6,'objective45':objective,'sourceIssues':issues}
 Path('content/verification.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 print(f'Independent references: {len(refs)} original short-answer subquestions; PS1 C1–C3; lecture corrections.')

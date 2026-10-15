@@ -24,7 +24,7 @@ c_text=[
 chapter={1:['population','causality'],2:['data-types','center','quantiles','variance-sample','bounds','correlation','standardization','shape'],4:['axioms','conditional','independence','addition','bayes'],5:['expectation','binomial','poisson','pmf-cdf','linearity','linear-variance','variance-rv','total-expectation'],6:['continuous-uniform','normal','exponential']}
 def ch(topic): return next(k for k,v in chapter.items() if topic in v)
 result=[]
-for i,s in enumerate(raw):
+for i,s in enumerate(raw[:3]):
     sid=f'original-{i+1}';level=['basic','intermediate','advanced'][i];qs=[]
     def base(id,topic,part,points):
         return dict(questionId=f'{sid}-{id}',setId=sid,chapterId=ch(topic),topicId=topic,difficulty=level,points=points,part=part,source=s['filename'],sourceFile=s['filename'],sourcePage=None,answerPage=5,explanation='',correctAnswer='')
@@ -51,3 +51,5 @@ for i,s in enumerate(raw):
     result.append(dict(id=sid,title=f'Practice Set {i+1}',description=['기초 · 제공된 원본 PDF','실전 · 제공된 원본 PDF','심화 · 제공된 원본 PDF'][i],difficulty=level,minutes=90,original=True,questions=qs))
 Path('src/data/originalSets.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
 print('Built original sets:',[(s['id'],len(s['questions']),sum(q['points'] for q in s['questions'])) for s in result])
+import subprocess
+subprocess.run(['python3','scripts/build_additional_sets.py'],check=True)

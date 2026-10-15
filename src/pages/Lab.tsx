@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { DistributionLab } from "../components/DistributionLab";
 import { SourceNote } from "../components/ui";
+import { NormalDecisionCalculator } from "../components/NormalDecisionCalculator";
 export function LabPage() {
   return (
     <div className="page">
@@ -10,9 +11,10 @@ export function LabPage() {
           <h1>분포 실험실</h1>
           <p>모수를 바꾸고, 그래프를 관찰하고, 수식 속 관계를 발견하세요.</p>
         </div>
-        <span className="pill">6가지 분포</span>
+        <span className="pill">범위 내 5가지 분포 · 지수는 별도 보충</span>
       </div>
       <DistributionLab />
+      <NormalDecisionCalculator />
       <div className="lab-guide-grid">
         <Link to="/learn/bernoulli">
           <span>01 · BERNOULLI</span>

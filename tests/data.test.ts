@@ -14,10 +14,10 @@ import sourceData from "../content/extracted-practice.json";
 import reference from "../content/verification.json";
 import * as math from "../src/lib/math";
 describe("문항 수·배점·출처 무결성", () => {
-  it("원본 3세트와 보충 5세트는 구별", () => {
-    expect(originalSets).toHaveLength(3);
+  it("원본 5세트와 보충 5세트는 구별", () => {
+    expect(originalSets).toHaveLength(5);
     expect(supplementarySets).toHaveLength(5);
-    expect(practiceSets).toHaveLength(8);
+    expect(practiceSets).toHaveLength(10);
     expect(originalSets.every((s) => s.original)).toBe(true);
   });
   it.each(practiceSets)("$title 형식은 10/10/3, 20/30/50, 100점", (s) => {
@@ -108,11 +108,13 @@ describe("문항 수·배점·출처 무결성", () => {
       }
     },
   );
-  it("세트 1–3 객관식 키의 원문 대조", () => {
+  it("세트 1–5 객관식 키의 원문 대조", () => {
     const keys = [
       "BBCBCBBCBA",
       "CCCB BCC AAB".replaceAll(" ", ""),
       "BCCCDBBBCB",
+      "BCBCBCABCC",
+      "CDBCCCBCAB",
     ];
     originalSets.forEach((s, i) =>
       expect(
@@ -123,8 +125,14 @@ describe("문항 수·배점·출처 무결성", () => {
       ).toBe(keys[i]),
     );
   });
-  it("세트 1–3 참거짓 키의 원문 대조", () => {
-    const keys = ["FTFTFTTFFT", "TFFTFTTFTF", "FFTFTFTTTT"];
+  it("세트 1–5 참거짓 키의 원문 대조", () => {
+    const keys = [
+      "FTFTFTTFFT",
+      "TFFTFTTFTF",
+      "FFTFTFTTTT",
+      "TFTFTFTFTF",
+      "TFTFFTTTFT",
+    ];
     originalSets.forEach((s, i) =>
       expect(
         s.questions
@@ -190,7 +198,9 @@ describe("학습 콘텐츠", () => {
     expect(
       lessonById["total-expectation"].originalExamples?.[0].note,
     ).toContain("보충");
-    expect(lessonById.normal.references?.[0].file).toBe("LESE152_PS1.pdf");
+    expect(lessonById.normal.references?.[0].file).toBe(
+      "L6_Continuous_Random_Variables.pdf",
+    );
   });
   it("문항의 개념퀴즈와 수식문제가 모두 실제 개념에 연결", () => {
     expect(questionById["concept-bernoulli"].correctAnswer).toBe(1);

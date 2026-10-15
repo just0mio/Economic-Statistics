@@ -81,7 +81,11 @@ describe("확률 계산과 분포", () => {
       5,
     );
     for (const p of [0.001, 0.05, 0.5, 0.95, 0.999])
-      expect(m.normalCDF(m.normalQuantile(p))).toBeCloseTo(p, 8);
+      // The independent inverse no longer compensates for the CDF's own
+      // documented 7.5e-8 approximation error. Check the combined bound.
+      expect(Math.abs(m.normalCDF(m.normalQuantile(p)) - p)).toBeLessThan(
+        7.6e-8,
+      );
   });
   it("연속균등과 지수의 경계·단위", () => {
     expect(m.uniformCDF(5, 0, 10) - m.uniformCDF(2, 0, 10)).toBeCloseTo(

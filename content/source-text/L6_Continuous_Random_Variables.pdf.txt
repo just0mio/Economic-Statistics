@@ -1,0 +1,665 @@
+Continuous Random Variables and the Normal Distribution
+
+                        Jisang Yu
+
+
+                        LESE152
+
+
+
+
+ Jisang Yu               Lecture 6              LESE152   1 / 32
+Continuous Random Variables: Several Concepts
+
+
+
+   Continuous Random Variables
+   The Uniform Distribution
+   The Normal Distribution
+   The Exponential Distribution
+   Multiple Random Variables
+   Practice Questions
+
+
+
+
+         Jisang Yu                Lecture 6     LESE152   2 / 32
+                           Continuous Random Variables
+
+
+
+Continuous Random Variables
+
+
+
+
+   Continuous random variable: A random variable whose possible values fill an interval, so
+   they cannot be listed.
+   Examples: a price, a wage, the amount of rainfall, the time it takes to drive to school, the
+   labor force participation rate (any number between 0% and 100%).
+   Each single value has probability zero, so the math uses calculus instead of sums.
+
+
+
+
+         Jisang Yu                                 Lecture 6               LESE152          3 / 32
+                            Continuous Random Variables
+
+
+
+Cumulative Distribution Function (CDF)
+   The CDF has the same definition as in Lecture 5:
+
+                                              F (x) = P(X ≤ x).
+
+   A discrete CDF is a step function. A continuous CDF increases smoothly: it can have flat
+   parts, but it never jumps.
+   Standard uniform: X can take any value in [0, 1], with
+                                           
+                                           0 x < 0
+                                           
+                                    F (x) = x 0 ≤ x ≤ 1
+                                           
+                                             1 x >1
+                                           
+
+   Interval probabilities work exactly as before:
+
+                       P(0.65 < X < 0.70) = F (0.70) − F (0.65) = 0.05.
+         Jisang Yu                                  Lecture 6             LESE152        4 / 32
+                             Continuous Random Variables
+
+
+
+Probability Density Function (PDF)
+
+   Probability density function: The slope of
+   the CDF,
+                 f (x) = F ′ (x).
+   Probabilities are areas under the PDF:
+
+
+
+
+                                                                 f (x)
+                      Z b
+   P(a ≤ X ≤ b) =         f (x) dx = F (b)−F (a).                        P(a ≤ X ≤ b)
+                       a
+
+   f (x) ≥ 0, and the total area under f is 1.                           a            b
+   f (x) is a density, not a probability. It can                             x
+   be greater than 1. Only areas are
+   probabilities.
+
+          Jisang Yu                                  Lecture 6                   LESE152   5 / 32
+                           Continuous Random Variables
+
+
+
+Quantiles and Expected Values
+
+   Quantile: The q quantile xq solves F (xq ) = q. The median is x0.5 , and the 90th
+   percentile is x0.9 . These are usually easier to find for continuous random variables.
+   Expected value: The same idea as in Lecture 5, with the sum replaced by an integral,
+                                            Z
+                                   E (X ) = x f (x) dx.
+
+   Variance: Var(X ) = E [(X − µ)2 ] = E (X 2 ) − µ2 , as before.
+   All the rules from Lecture 5 carry over: E (a + bX ) = a + b E (X ),
+   Var(a + bX ) = b 2 Var(X ), and standardization.
+   You will not be asked to integrate. For each standard distribution, we report the mean
+   and variance and use them.
+
+         Jisang Yu                                 Lecture 6                 LESE152        6 / 32
+                                The Uniform Distribution
+
+
+
+Uniform Distribution
+
+
+   X ∼ U(a, b): all values in [a, b] are equally
+                                                                                   PDF of U(2, 5)
+   likely,
+                       1
+          f (x) =            for a ≤ x ≤ b,
+                      b−a                                                1/3
+
+
+
+
+                                                                 f (x)
+   and f (x) = 0 otherwise.
+   CDF:
+                      x −a
+          F (x) =            for a ≤ x ≤ b.                                    2                    5
+                      b−a                                                                x
+   U(0, 1) is called the standard uniform.
+
+
+          Jisang Yu                                  Lecture 6                         LESE152          7 / 32
+                             The Uniform Distribution
+
+
+
+Uniform: Quantiles and Moments
+
+
+   Quantiles: Invert the CDF,
+                                           xq = a + q(b − a).
+   The median is the midpoint (a + b)/2.
+   Mean and variance:
+                                   a+b                   (b − a)2
+                           E (X ) =      ,    Var(X ) =           .
+                                      2                     12
+   X ∼ U(2, 5): E (X ) = 3.5, Var(X ) = 9/12 = 0.75, σ ≈ 0.866, and the 90th percentile is
+   2 + 0.9 × 3 = 4.7.
+   A linear function of a uniform is uniform: if X ∼ U(2, 5), then 2X + 2 ∼ U(6, 12).
+
+
+
+         Jisang Yu                                Lecture 6              LESE152         8 / 32
+                               The Uniform Distribution
+
+
+
+Uniform: An Example
+
+
+A delivery is equally likely to arrive at any time between 9:00 and 11:00. Let X be the arrival
+time in minutes after 9:00, so X ∼ U(0, 120).
+    Arrives before 9:30: P(X < 30) = 30/120 = 0.25.
+    Arrives exactly at 10:00: P(X = 60) = 0. Only intervals have positive probability.
+                                                                        √
+    Expected arrival: E (X ) = 60, i.e., 10:00. Standard deviation: 120/ 12 ≈ 34.6 minutes.
+    90th percentile: 0.9 × 120 = 108, i.e., 10:48. You can be 90% sure the delivery arrives by
+    then.
+    The standard uniform is the building block of simulation: RAND() in Excel and runif()
+    in R draw from U(0, 1).
+
+
+
+           Jisang Yu                                Lecture 6                LESE152          9 / 32
+                              The Normal Distribution
+
+
+
+Normal Distribution
+
+   X ∼ N(µ, σ 2 ), with PDF
+
+                                     (x − µ)2
+                                             
+                              1
+                     f (x) = √ exp −            ,             −∞ < x < ∞.
+                            σ 2π        2σ 2
+
+   Mean and variance: E (X ) = µ,         Var(X ) = σ 2 .
+   Bell-shaped and symmetric around µ, so mean = median = mode. The total area is 1,
+   with 0.5 on each side of µ.
+   Also called the Gaussian distribution. N(0, 1) is the standard normal.
+   Why it is everywhere: sums and averages of many small independent shocks are
+   approximately normal.
+
+
+         Jisang Yu                                Lecture 6                 LESE152    10 / 32
+                               The Normal Distribution
+
+
+
+Normal Shapes
+
+                                                                        N(0, 1)
+                                                                        N(1, 1)
+                f (x)                                                   N(0, 4)
+
+
+
+
+                     −6   −4            −2               0     2    4               6
+                                                         x
+
+   Increasing µ shifts the curve to the right. Increasing σ flattens and spreads it out.
+   Otherwise the shape is identical, so one table (the standard normal) is enough for all
+   normals.
+
+         Jisang Yu                                 Lecture 6                      LESE152   11 / 32
+                                 The Normal Distribution
+
+
+
+Linear Functions of a Normal
+
+
+   Any random variable has E (a + bX ) = a + b E (X ) and Var(a + bX ) = b 2 Var(X ).
+   Normal random variables have an extra property: a linear function of a normal is also
+   normal,
+                      X ∼ N(µ, σ 2 ) ⇒ a + bX ∼ N(a + bµ, b 2 σ 2 ).
+   Example: X ∼ N(2, 9). Then
+
+                     X + 1 ∼ N(3, 9),          2X ∼ N(4, 36),    −2X ∼ N(−4, 36).
+
+   Nonlinear functions of a normal are generally not normal. For example, X 2 cannot be
+   negative.
+
+
+
+         Jisang Yu                                   Lecture 6              LESE152        12 / 32
+                               The Normal Distribution
+
+
+
+The Standard Normal
+
+   Standardization is especially useful for normals:
+                                                               X −µ
+                           X ∼ N(µ, σ 2 ) ⇒ Z =                     ∼ N(0, 1).
+                                                                 σ
+   Φ(z) = P(Z ≤ z) denotes the standard normal CDF.
+   Any normal probability can be written with Φ:
+                                                            
+                                              x −µ        x −µ
+                        P(X ≤ x) = P Z ≤             =Φ          .
+                                                σ           σ
+
+   The z-score (x − µ)/σ measures how many standard deviations x is from the mean.
+   Φ has no simple formula, but it is in every table and every software package.
+
+         Jisang Yu                                 Lecture 6                     LESE152   13 / 32
+                                The Normal Distribution
+
+
+
+The Empirical Rule
+
+
+   For any normal distribution:
+       P(µ − σ < X < µ + σ) ≈ 0.68
+       P(µ − 2σ < X < µ + 2σ) ≈ 0.95
+       P(µ − 3σ < X < µ + 3σ) ≈ 0.997
+   This is where the 68–95–99.7 rule from
+   Lecture 2 comes from.                                                 68%
+   More precise values used throughout the
+   course:                                                                         95%
+
+       P(|Z | ≤ 1.645) = 0.90                                   −2σ −σ   µ     σ     2σ
+       P(|Z | ≤ 1.96) = 0.95
+       P(|Z | ≤ 2.576) = 0.99
+
+
+
+         Jisang Yu                                  Lecture 6                  LESE152    14 / 32
+                                The Normal Distribution
+
+
+
+Finding Standard Normal Probabilities
+
+    A standard normal table gives Φ(z) = P(Z ≤ z). Example: P(Z ≤ 1.00) = 0.8413 (row
+    1.0, column 0.00).
+    Useful rules:
+         Complement: P(Z > z) = 1 − Φ(z).
+         Symmetry: P(Z > z) = P(Z < −z), so Φ(−z) = 1 − Φ(z).
+         Intervals: P(a ≤ Z ≤ b) = Φ(b) − Φ(a).
+    P(−1.5 ≤ Z ≤ 2.0) = 0.9772 − 0.0668 = 0.9104.
+    P(Z ≥ 1.75) = 1 − 0.9599 = 0.0401, or equivalently P(Z ≤ −1.75) = 0.0401.
+    Excel: NORM.S.DIST(z,TRUE) and NORM.DIST(x,µ,σ,TRUE). R: pnorm(z) and
+    pnorm(x,mu,sigma).
+    Sketch the area first. Most errors are set-up errors, not table errors.
+
+
+          Jisang Yu                                 Lecture 6                 LESE152   15 / 32
+                               The Normal Distribution
+
+
+
+Normal Probabilities: Weekly Revenue
+
+A store’s weekly revenue is X ∼ N(25000, 40002 ).
+    Revenue below 20,000:
+                                                              
+                                        20000 − 25000
+                   P(X < 20000) = P Z <                            = Φ(−1.25) ≈ 0.106.
+                                            4000
+
+    Revenue above 30,000: z = 1.25, so P(X > 30000) = 1 − Φ(1.25) ≈ 0.106. The same as
+    below 20,000, by symmetry.
+    Revenue between 22,000 and 28,000: z = ±0.75, so
+
+           P(22000 < X < 28000) = Φ(0.75) − Φ(−0.75) = 0.7734 − 0.2266 ≈ 0.547.
+
+    Excel: NORM.DIST(20000,25000,4000,TRUE). R: pnorm(20000,25000,4000).
+
+           Jisang Yu                               Lecture 6                   LESE152   16 / 32
+                              The Normal Distribution
+
+
+
+Percentiles: Working Backwards
+
+
+   Sometimes we know the probability and want the value. The q quantile of X ∼ N(µ, σ 2 )
+   is
+                                      xq = µ + zq σ,
+   where zq is the q quantile of the standard normal, Φ(zq ) = q.
+   90th percentile of Z : Φ(1.28) ≈ 0.90, so z0.90 ≈ 1.28.
+   90th percentile of X ∼ N(100, 152 ): 100 + 1.28 × 15 = 119.2.
+   The middle 90% of a normal lies within µ ± 1.645 σ.
+   Excel: NORM.INV(q,µ,σ). R: qnorm(q,mu,sigma).
+
+
+
+
+         Jisang Yu                                Lecture 6            LESE152         17 / 32
+                                  The Normal Distribution
+
+
+
+Percentiles: Safety Stock
+
+A store’s weekly demand is X ∼ N(500, 602 ). A delivery arrives once a week, and the current
+policy stocks 550 units.
+    Probability of running out:
+                                                                 
+                                                      550 − 500
+                       P(X > 550) = 1 − Φ                             = 1 − Φ(0.83) ≈ 0.20.
+                                                          60
+
+    The store runs out about once every five weeks.
+    To run out only 2% of the time, stock the 98th percentile of demand:
+
+                               x0.98 = 500 + 2.054 × 60 ≈ 623 units.
+
+    The extra 73 units are the cost of reliability. Quantiles translate a service target into an
+    inventory level.
+
+           Jisang Yu                                  Lecture 6                        LESE152   18 / 32
+                              Multiple Random Variables
+
+
+
+Joint Distribution
+
+
+
+    Most data sets have several variables, so we need to describe several random variables at
+    once.
+    Joint distribution of X and Y : The probabilities of all pairs of values. For discrete
+    random variables, the joint PMF is
+
+                                  p(x, y ) = P(X = x and Y = y ).
+
+
+
+
+          Jisang Yu                                 Lecture 6                 LESE152        19 / 32
+                             Multiple Random Variables
+
+
+
+Marginal and Conditional Distributions
+
+    Marginal distribution: The distribution of one variable alone (the row and column totals
+    in the table):                              X
+                                       pX (x) =     p(x, y ).
+                                                           y
+
+    Roulette: P(yRed = 1) = 17/37 + 1/37 = 18/37, the same PMF as in Lecture 5.
+    Conditional distribution: The distribution of Y given X = x, from Lecture 4’s conditional
+    probability,
+                                                        p(x, y )
+                                  P(Y = y | X = x) =             .
+                                                         pX (x)
+    Roulette: P(y14 = 35 | yRed = 1) = (1/37)/(18/37) = 1/18.
+    Wages given education, yields given rainfall: the conditional mean E (Y | X = x) is the
+    population regression function.
+
+          Jisang Yu                                Lecture 6               LESE152            20 / 32
+                             Multiple Random Variables
+
+
+
+Independence
+
+   X and Y are independent if the joint PMF equals the product of the marginals for every
+   pair of values:
+                                   p(x, y ) = pX (x) pY (y ).
+   Equivalently, the conditional distribution of Y given X does not depend on X .
+   Roulette, same spin: P(yRed = 1, y14 = 35) = 1/37, but
+   P(yRed = 1) P(y14 = 35) = (18/37)(1/37). Not independent: knowing that red won
+   changes the chance that 14 won.
+   Roulette, different spins: the results of separate games are independent.
+   The marginal distributions alone do not determine the joint distribution. Two players
+   betting on red and black have the same marginals, but one always loses when the other
+   wins.
+
+         Jisang Yu                                 Lecture 6               LESE152     21 / 32
+                                 Multiple Random Variables
+
+
+
+Covariance
+
+   Covariance: A measure of how X and Y move together,
+
+                        Cov(X , Y ) = E [(X − µX )(Y − µY )] = E (XY ) − µX µY .
+
+   Positive: above-average X tends to come with above-average Y . Negative: they move in
+   opposite directions. Zero: no linear co-movement.
+   Roulette: from the joint table,
+
+                     E (yRed y14 ) = (−1)(−1) 19              17           1   37
+                                                37 + (1)(−1) 37 + (1)(35) 37 = 37 = 1,
+
+                                                          1       1
+                                                                   
+                               Cov(yRed , y14 ) = 1 − − 37     − 37   ≈ 0.999.
+   Positive: when 14 wins, red always wins too.
+
+
+         Jisang Yu                                     Lecture 6                LESE152   22 / 32
+                             Multiple Random Variables
+
+
+
+Correlation
+
+
+    The size of the covariance depends on the units of X and Y . Correlation removes the
+    units:
+                                           Cov(X , Y )
+                      ρXY = Corr(X , Y ) =             ,   −1 ≤ ρXY ≤ 1.
+                                             σX σY
+    ρ = 1 or −1: an exact linear relationship. ρ = 0: uncorrelated.
+    Roulette: σRed ≈ 1.0 and σ14 ≈ 5.84 (Lecture 5), so ρ ≈ 0.999/(1.0 × 5.84) ≈ 0.17. A
+    positive but weak relationship.
+    If X and Y are independent, then Cov(X , Y ) = 0.
+    The converse fails: if X is symmetric around 0 and Y = X 2 , then Cov(X , Y ) = 0, but Y
+    is completely determined by X . Covariance only measures linear association.
+
+
+
+          Jisang Yu                                Lecture 6              LESE152          23 / 32
+                           Multiple Random Variables
+
+
+
+Linear Combinations
+
+   For W = aX + bY :
+                                       E (W ) = a µX + b µY ,
+                         Var(W ) = a2 σX2 + b 2 σY2 + 2ab Cov(X , Y ).
+   If X and Y are independent, the covariance term drops out and the variances add.
+   If X and Y are (jointly) normal, then W is normal too.
+   Roulette: bet $100 on red and $10 on 14, so W = 100 yRed + 10 y14 .
+
+                              E (W ) = 110 × (−1/37) ≈ −2.97,
+
+      Var(W ) ≈ 1002 (1.0) + 102 (34.08) + 2(100)(10)(0.999) ≈ 15,399,        σW ≈ 124.
+
+
+         Jisang Yu                               Lecture 6               LESE152          24 / 32
+                              Multiple Random Variables
+
+
+
+Diversification: A Two-Asset Portfolio
+
+Stock: mean 8%, sd 20%. Bond: mean 3%, sd 5%. Correlation 0.2. Portfolio: 60% stock,
+40% bond.
+    Mean: 0.6(8) + 0.4(3) = 6%.
+    Covariance: 0.2 × 20 × 5 = 20.
+    Variance: 0.62 (400) + 0.42 (25) + 2(0.6)(0.4)(20) = 144 + 4 + 9.6 = 157.6, so sd ≈ 12.6%.
+    This is less than the weighted average of the sds, 0.6(20) + 0.4(5) = 14%.
+    Diversification: whenever ρ < 1, the portfolio’s risk is below the weighted average of the
+    individual risks.
+    With n equally weighted assets, the variance falls toward ρσ 2 , not to zero. Risk shared by
+    all assets (a recession) cannot be diversified away. A sample mean is a portfolio of
+    observations.
+
+          Jisang Yu                                 Lecture 6               LESE152          25 / 32
+                             Multiple Random Variables
+
+
+
+Summary
+
+
+   A continuous random variable has P(X = x) = 0. Probabilities are areas under the PDF,
+   F (x) = P(X ≤ x), and quantiles invert the CDF.
+   Uniform: equally likely values on [a, b]. Exponential: waiting times between Poisson
+   events.
+   Normal: bell-shaped, E (X ) = µ, Var(X ) = σ 2 . Standardize with Z = (X − µ)/σ and use
+   Φ. Work backwards with xq = µ + zq σ. Remember 1.645 / 1.96 / 2.576.
+   The joint distribution gives marginals and conditionals. Independence means the joint
+   PMF is the product of the marginals.
+   Covariance and correlation measure linear co-movement.
+   Var(aX + bY ) = a2 σX2 + b 2 σY2 + 2ab Cov(X , Y ), which explains diversification.
+
+
+         Jisang Yu                                 Lecture 6                LESE152        26 / 32
+                                      Practice Questions
+
+
+
+Practice Question 1: Coffee Orders
+
+
+
+The time it takes a barista to prepare an order, X (in minutes), is uniformly distributed
+between 2 and 6 minutes.
+(a) Write down the PDF of X .
+(b) What is the probability that an order takes more than 5 minutes?
+(c) What is P(3 < X < 4)? What is P(X = 4)?
+(d) Find E (X ) and the standard deviation of X .
+(e) Find the 90th percentile of X .
+
+
+
+
+           Jisang Yu                                 Lecture 6               LESE152        27 / 32
+                                 Practice Questions
+
+
+
+Practice Question 1: Answers
+
+
+
+
+(a) f (x) = 1/(6 − 2) = 1/4 for 2 ≤ x ≤ 6, and 0 otherwise.
+(b) P(X > 5) = (6 − 5)/4 = 0.25.
+(c) P(3 < X < 4) = (4 − 3)/4 = 0.25. P(X = 4) = 0, since X is continuous.
+(d) E (X ) = (2 + 6)/2 = 4 minutes. Var(X ) = (6 − 2)2 /12 = 4/3, so σ ≈ 1.15 minutes.
+(e) x0.9 = 2 + 0.9 × 4 = 5.6 minutes.
+
+
+
+
+          Jisang Yu                             Lecture 6               LESE152          28 / 32
+                                 Practice Questions
+
+
+
+Practice Question 2: Household Debt
+
+
+
+Household debt excluding mortgages, X , is approximately normal with mean µ = 41,500 and
+standard deviation σ = 3,900 (dollars).
+(a) What percentage of households have debt above 50,000?
+(b) What is the probability that a randomly selected household has debt between 35,000 and
+    45,000?
+(c) What level of debt separates the top 20% of households from the rest?
+(d) A household is at the 65th percentile of debt. How much debt does it have?
+
+
+
+
+          Jisang Yu                             Lecture 6                   LESE152     29 / 32
+                                 Practice Questions
+
+
+
+Practice Question 2: Answers
+
+
+
+(a) z = (50000 − 41500)/3900 ≈ 2.18, so
+    P(X > 50000) = 1 − Φ(2.18) ≈ 1 − 0.9854 = 0.0146. About 1.5%.
+(b) z = (35000 − 41500)/3900 ≈ −1.67 and z = (45000 − 41500)/3900 ≈ 0.90, so
+
+           P(35000 < X < 45000) = Φ(0.90) − Φ(−1.67) ≈ 0.8159 − 0.0475 ≈ 0.77.
+
+(c) The 80th percentile: z0.80 ≈ 0.84, so x0.80 = 41500 + 0.84 × 3900 ≈ 44,780.
+(d) z0.65 ≈ 0.385, so x0.65 = 41500 + 0.385 × 3900 ≈ 43,000.
+
+
+
+
+          Jisang Yu                             Lecture 6                LESE152   30 / 32
+                                   Practice Questions
+
+
+
+Practice Question 3 Two Projects
+
+
+A firm can invest in two projects. Project A has an expected return of 10% with standard
+deviation 4%. Project B has an expected return of 14% with standard deviation 8%. The
+correlation between the returns is ρ = −0.3.
+(a) Find the covariance of the two returns.
+(b) The firm splits its money equally, so its return is W = 0.5A + 0.5B. Find E (W ) and the
+    standard deviation of W .
+(c) Compare the portfolio with investing only in A. Which has the higher mean? Which has
+    the lower risk?
+(d) Assume the returns are jointly normal. What is the probability that the portfolio return is
+    negative?
+
+
+
+           Jisang Yu                              Lecture 6                 LESE152         31 / 32
+                                 Practice Questions
+
+
+
+Practice Question 3: Answers
+
+
+
+(a) Cov(A, B) = ρ σA σB = −0.3 × 4 × 8 = −9.6.
+(b) E (W ) = 0.5(10) + 0.5(14) = 12%.
+
+    Var(W ) = 0.25(16)+0.25(64)+2(0.5)(0.5)(−9.6) = 4+16−4.8 = 15.2,              σW ≈ 3.9%.
+
+(c) The portfolio has a higher mean (12% vs. 10%) and slightly lower risk (3.9% vs. 4%)
+    than A alone. The negative correlation makes diversification especially effective.
+(d) W ∼ N(12, 3.92 ), so P(W < 0) = Φ 0−12
+                                               
+                                           3.9   = Φ(−3.08) ≈ 0.001.
+
+
+
+
+          Jisang Yu                             Lecture 6               LESE152           32 / 32
+

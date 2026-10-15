@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Lesson, Question } from "../data/types";
+import { isExamTopic } from "../data/scope";
 const FormulaRenderer = lazy(() => import("./FormulaRenderer"));
 export function MathBlock({ formula }: { formula: string }) {
   return (
@@ -26,7 +27,7 @@ export function SourceNote({ compact = false }: { compact?: boolean }) {
     <div className={`source-note ${compact ? "compact" : ""}`}>
       <BookOpen size={16} />
       <span>
-        강의 269쪽 · PS1 · Practice Set 1–3 확인
+        Lecture 1–6 · L6 정규분포까지 · 원본 Practice Set 1–5
         {!compact && " · 재구성한 설명과 원문 예제를 구분해 제공합니다."}
       </span>
       <Link to="/sources">
@@ -113,29 +114,41 @@ export function QuestionSource({
 }) {
   const page = answer ? q.answerPage : q.sourcePage;
   return (
-    <p className="question-source">
-      출처: {q.source}
-      {q.sourceFile && page ? (
-        <a
-          className="text-link"
-          href={`./materials/${q.sourceFile}#page=${page}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {" "}
-          · PDF {page}쪽 ↗
-        </a>
-      ) : (
-        " · 직접 작성한 보충 문항"
+    <>
+      <p className="question-source">
+        출처: {q.source}
+        {!isExamTopic(q.topicId) && <strong> · 이번 시험범위 밖 보충</strong>}
+        {q.sourceFile && page ? (
+          <a
+            className="text-link"
+            href={`./materials/${q.sourceFile}#page=${page}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            · PDF {page}쪽 ↗
+          </a>
+        ) : (
+          " · 직접 작성한 보충 문항"
+        )}
+      </p>
+      {q.sourceIssue && (
+        <p className="audit-note" role="note">
+          원문 주의: {q.sourceIssue}
+        </p>
       )}
-    </p>
+    </>
   );
 }
 export function LessonSources({ lesson }: { lesson: Lesson }) {
   return (
     <div className="lesson-sources">
       <strong>
-        {lesson.chapterId === 6 ? "PS1 추가 대비" : "강의 개념 출처"}
+        {!isExamTopic(lesson.id)
+          ? "이번 시험범위 밖 · PS1 보충"
+          : lesson.lecture
+            ? "강의 개념 출처"
+            : "PS1 관련 보충 설명"}
       </strong>
       {lesson.references?.map((ref) => (
         <div key={`${ref.file}-${ref.label}`}>
@@ -179,7 +192,7 @@ export function OriginalExamples({ lesson }: { lesson: Lesson }) {
           )}
           <a
             className="text-link"
-            href={`./materials/lecture.pdf#page=${e.page}`}
+            href={`./materials/${e.file ?? "lecture.pdf"}#page=${e.page}`}
             target="_blank"
             rel="noreferrer"
           >

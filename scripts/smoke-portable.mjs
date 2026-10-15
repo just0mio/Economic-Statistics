@@ -78,8 +78,17 @@ try {
       JSON.parse(localStorage.getItem("lese152-studio-v1")).weak.includes("concept-bernoulli"),
     ));
 
+    await page.goto(`${address}#/learn/normal-stock`);
+    await ready();
+    await expect(page.getByTestId("stock-integer")).toHaveText("624");
+    await expect(page.getByTestId("stock-continuous")).toHaveText("623.2249");
+    await page.getByRole("spinbutton", {name:"허용 부족확률 (%)",exact:true}).fill("5");
+    await expect(page.getByTestId("stock-integer")).toHaveText("599");
+    for(const pdf of ["L4_Probability.pdf","L5_Discrete_Random_Variables.pdf","L6_Exam_Scope_Through_Normal.pdf","LESE152_Practice_Set_4.pdf","LESE152_Practice_Set_5.pdf"])
+      assert.ok(existsSync(fileURLToPath(new URL(`./materials/${pdf}`,fileAddress))));
     await page.goto(`${address}#/practice?mode=exam`);
     await ready();
+    await expect(page.locator(".set-card")).toHaveCount(5);
     await page.getByRole("button", { name: "모의시험 시작", exact: true }).first().click();
     await page.locator("input[type=radio]").nth(1).check();
     const deadline = await page.evaluate(() =>
