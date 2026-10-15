@@ -1,5 +1,7 @@
 # LESE152 최종본 1.1.0 다운로드
 
+**[Safari에서 웹앱 바로 열기](https://just0mio.github.io/Economic-Statistics/)** — ZIP 없이 사용할 수 있습니다. 기존 학습 기록은 설정의 JSON 백업·복원으로 옮깁니다.
+
 ## 설치 없이 PC에서 실행
 
 [실행 ZIP 다운로드 (약 13 MB)](https://github.com/just0mio/Economic-Statistics/raw/refs/heads/main/releases/LESE152-portable.zip)

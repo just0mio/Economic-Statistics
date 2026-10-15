@@ -1,6 +1,8 @@
 # Safari에서 웹주소로 사용하기
 
-배포 대상은 `https://just0mio.github.io/Economic-Statistics/`입니다. 이 주소는 GitHub Pages의 최초 활성화와 성공한 배포 후 사용할 수 있습니다. GitHub 파일 다운로드와 웹사이트 접속은 별개입니다.
+웹앱 주소: **https://just0mio.github.io/Economic-Statistics/**
+
+현재 저장소는 최초 활성화와 배포를 완료했습니다. [첫 성공 배포](https://github.com/just0mio/Economic-Statistics/actions/runs/38732856805)에서 공개 HTTPS HTML·JavaScript·CSS·Lecture6 PDF 검사까지 통과했습니다. GitHub 파일 다운로드와 웹사이트 접속은 별개입니다. 아래 최초 설정은 다른 저장소에서 다시 구성할 때 참고합니다.
 
 ## 최초 GitHub 설정
 

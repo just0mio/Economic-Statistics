@@ -56,3 +56,7 @@ Codex 환경 설정 화면은 앱 미리보기나 웹 호스팅을 제공하지 
 - `npm run test:pages -- <내부 미리보기 주소>`: 데스크톱·모바일2개 흐름 통과. 실제 빌드에서 lazy JS·수식·새로고침 후 진도·원문PDF·안전재고624/599·가로넘침을 확인.
 - 현재 클라우드에서 GitHub 설정API와 github.io 접속은 네트워크403으로 차단되어 있음. 로컬 배포 경로 검증과 실제 공개 배포 성공을 구분함.
 - 자동 배포 워크플로는 `main` push 또는 수동 실행으로 시작. GitHub Pages 최초 활성화가 필요하며, 배포 후 HTTPS HTML·JS·CSS·Lecture6 PDF를 GitHub Actions에서 검증함.
+
+### 공개 배포 성공 확인
+
+GitHub Pages 활성화 후 커밋 `e50ce45`의 [배포 실행38732856805](https://github.com/just0mio/Economic-Statistics/actions/runs/38732856805)이 **Success**로 완료되었습니다. 배포 환경이 보고한 실제 주소는 https://just0mio.github.io/Economic-Statistics/ 입니다. 마지막 `Verify the live website` 단계는 GitHub Actions에서 공개 HTTPS HTML·JavaScript·CSS·L6 범위 PDF의 HTTP200과 유형을 검사했습니다. 현재 클라우드에서 github.io를 직접 요청한 검증과 구분합니다. 실제 Safari 물리 기기에서 직접 시험했다고 주장하지 않습니다.

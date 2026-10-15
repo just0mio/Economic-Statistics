@@ -1,8 +1,10 @@
 # LESE152 경제통계학 스튜디오 · 최종본 1.1.0
 
+**[Safari · 웹에서 바로 열기](https://just0mio.github.io/Economic-Statistics/)** — 설치 없이 사용합니다. `main` 변경 사항은 GitHub Actions 성공 후 같은 주소에 반영됩니다.
+
 **[PC용 실행 ZIP 다운로드](https://github.com/just0mio/Economic-Statistics/raw/refs/heads/main/releases/LESE152-portable.zip)** · **[전체 소스 ZIP 다운로드](https://github.com/just0mio/Economic-Statistics/raw/refs/heads/main/releases/LESE152-source.zip)** · [열기·설치 안내](DOWNLOADS.md)
 
-웹주소로 사용하기 위한 GitHub Pages 자동 배포를 추가했습니다. 최초 활성화는 [Safari 웹 배포 안내](DEPLOYMENT.md)를 참고하세요. 활성화·배포 성공 전에는 접속 주소가 준비되었다고 간주하지 않습니다.
+GitHub Pages 첫 배포와 공개 사이트 검증을 완료했습니다. 자세한 설정·기록 복원은 [Safari 웹 배포 안내](DEPLOYMENT.md)를 참고하세요.
 
 경제통계학 개념을 한국어 설명·영어 정의·수식·계산 예제와 함께 학습하고, 원본 연습문제와 모의시험으로 확인하는 로컬 웹앱입니다. React, TypeScript, Vite, Tailwind CSS, React Router, KaTeX, Recharts, Lucide, localStorage, Vitest를 사용합니다. 로그인과 서버 DB는 필요하지 않습니다.
 
