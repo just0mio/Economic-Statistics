@@ -41,7 +41,7 @@ with zipfile.ZipFile(releases / "LESE152-portable.zip", "w", zipfile.ZIP_DEFLATE
         if path.is_file() and "artifacts" not in path.relative_to(portable).parts:
             archive.write(path, Path("LESE152") / path.relative_to(portable))
 
-excluded = {".git", "node_modules", "dist", "portable", "releases", "test-results", "playwright-report", "__pycache__"}
+excluded = {".git", "node_modules", "dist", "pages-dist", "portable", "releases", "test-results", "playwright-report", "__pycache__"}
 with zipfile.ZipFile(releases / "LESE152-source.zip", "w", zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(root.rglob("*")):
         relative = path.relative_to(root)
